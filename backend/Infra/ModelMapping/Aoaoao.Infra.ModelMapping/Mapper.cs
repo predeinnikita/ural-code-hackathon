@@ -21,19 +21,18 @@ public static class Mapper
     public static void ScanAndEnsureConfigurations(Assembly rootAssembly)
     {
         var assemblies = new HashSet<Assembly>();
-        FillWithAssembliesWithPrefix(rootAssembly, "Aoaoao", assemblies);
+        FillWithAssembliesWithPrefix(rootAssembly, assemblies);
         TypeAdapterConfig.GlobalSettings.RequireDestinationMemberSource = true;
         TypeAdapterConfig.GlobalSettings.Scan(assemblies.ToArray());
         TypeAdapterConfig.GlobalSettings.Compile();
     }
 
-    private static void FillWithAssembliesWithPrefix(Assembly rootAssembly, string prefix, ISet<Assembly> assemblies)
+    private static void FillWithAssembliesWithPrefix(Assembly rootAssembly, ISet<Assembly> assemblies)
     {
         assemblies.Add(rootAssembly);
 
         var assembliesWithPrefix = rootAssembly
             .GetReferencedAssemblies()
-            .Where(x => x.Name!.Contains(prefix))
             .Select(Assembly.Load)
             .ToArray();
 
@@ -44,7 +43,7 @@ public static class Mapper
         {
             assemblies.Add(assembly);
             if (!assemblies.Contains(assembly))
-                FillWithAssembliesWithPrefix(assembly, prefix, assemblies);
+                FillWithAssembliesWithPrefix(assembly, assemblies);
         }
     }
 }
