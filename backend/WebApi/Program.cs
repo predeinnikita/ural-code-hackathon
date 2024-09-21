@@ -1,7 +1,12 @@
 using DAL;
 using DAL.Repositories;
 
+using System.Reflection;
+using LightInject;
+
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Host.UseLightInject(services => services.RegisterAssembly(Assembly.GetExecutingAssembly(), () => new PerRequestLifeTime(), (service, _) => service.IsInterface));
 
 // Add services to the container.
 
