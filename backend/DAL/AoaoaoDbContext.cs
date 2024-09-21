@@ -14,6 +14,7 @@ public sealed class AoaoaoDbContext : DbContext
     public DbSet<User> Users { get; set; }
     public DbSet<BusinessOrganization> BusinessOrganizations { get; set; }
     public DbSet<Vacancy> Vacancies { get; set; }
+    public DbSet<VacancyClaim> VacancyClaims { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
