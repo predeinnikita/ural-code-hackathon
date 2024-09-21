@@ -8,8 +8,8 @@ import Grid from "@mui/material/Grid2";
 export const VacancyList: FC<any> = () => {
   const [state, setState] = useState<VacancyListItemProps[]>([
     {
-      title: "Вакансия 1",
-      organization: "vacancy 1",
+      title: "Frontend",
+      organization: 'Ао "Аоаоао',
       tags: ["1-2 курс", "Без опыта"],
     },
     {

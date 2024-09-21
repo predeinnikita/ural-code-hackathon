@@ -19,23 +19,23 @@ public class RegisterController : ControllerBase
     }
 
     [HttpPost("student")]
-    public StatusCodeResult RegisterStudent([FromBody] StudentRegistrationInfoDto info)
+    public async Task<StatusCodeResult> RegisterStudent([FromBody] StudentRegistrationInfoDto info)
     {
-        registrationService.RegisterStudent(info);
+        await registrationService.RegisterStudent(info);
         return Ok();
     }
 
     [HttpPost("business")]
-    public StatusCodeResult RegisterBusinessOrganization([FromBody] BusinessOrganizationRegistrationInfoDto info)
+    public async Task<StatusCodeResult> RegisterBusinessOrganization([FromBody] BusinessOrganizationRegistrationInfoDto info)
     {
-        registrationService.RegisterBusinessOrganization(info);
+        await registrationService.RegisterBusinessOrganization(info);
         return Ok();
     }
 
     [HttpPost("educational-org")]
-    public StatusCodeResult RegisterEducationalOrganization([FromBody] EducationalOrganizationRegistrationInfoDto info)
+    public async Task<StatusCodeResult> RegisterEducationalOrganization([FromBody] EducationalOrganizationRegistrationInfoDto info)
     {
-        registrationService.RegisterEducationalOrganization(info);
+        await registrationService.RegisterEducationalOrganization(info);
         return Ok();
     }
 }

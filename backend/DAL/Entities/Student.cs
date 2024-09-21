@@ -14,7 +14,7 @@ public sealed class Student
     public ExperienceLevel Experience { get; set; }
     public string Email { get; set; }
     public string PhoneNumber { get; set; }
-    [Column("EducationalOrganizationId")] public Guid EducationalOrganizationId { get; set; }
+    [Column("EducationalOrganizationId")] public Guid? EducationalOrganizationId { get; set; }
 
-    public EducationalOrganization EducationalOrganization { get; set; }
+    public EducationalOrganization? EducationalOrganization { get; set; }
 }

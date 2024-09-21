@@ -6,6 +6,7 @@ namespace DAL.Repositories;
 public interface IStudentRepository
 {
     Task<Student?> FindByLoginAndPassword(string login, string passwordHash, CancellationToken cancellationToken);
+    Task<Student?> Create(Student student, CancellationToken cancellationToken = default);
 }
 
 public class StudentRepository : IStudentRepository
@@ -21,4 +22,11 @@ public class StudentRepository : IStudentRepository
         => await context.Students
             .Where(s => s.Login == login && s.PasswordHash == passwordHash)
             .FirstOrDefaultAsync(cancellationToken);
+
+    public async Task<Student?> Create(Student student, CancellationToken cancellationToken = default)
+    {
+        await context.Students.AddAsync(student, cancellationToken);
+        await context.SaveChangesAsync(cancellationToken);
+        return student;
+    }
 }

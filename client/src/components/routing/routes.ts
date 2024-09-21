@@ -8,9 +8,10 @@ export enum ROUTES {
   ORGANIZATION_CLAIM_LIST_PAGE = "/organization-claim-list",
   STUDENT_CLAIM_PAGE = "/student-claim",
   CLAIMS_PAGE = "/claims",
-  STATISTICS = "/statistics",
-  CREATE_VACANCY = "/create-vacancy",
-  PROFILE = "/profile",
+  STATISTICS_PAGE = "/statistics",
+  CREATE_VACANCY_PAGE = "/create-vacancy",
+  PROFILE_PAGE = "/profile",
+  ORGANIZATION_PAGE = "/organization",
 }
 
 export const ROUTE_TITLES = {
@@ -23,7 +24,8 @@ export const ROUTE_TITLES = {
   [ROUTES.ORGANIZATION_CLAIM_LIST_PAGE]: "Список заявок организаций",
   [ROUTES.STUDENT_CLAIM_PAGE]: "Заявка студента",
   [ROUTES.CLAIMS_PAGE]: "Список заявок",
-  [ROUTES.STATISTICS]: "Статистика",
-  [ROUTES.CREATE_VACANCY]: "Создать вакансию",
-  [ROUTES.PROFILE]: "Профиль",
+  [ROUTES.STATISTICS_PAGE]: "Статистика",
+  [ROUTES.CREATE_VACANCY_PAGE]: "Создать вакансию",
+  [ROUTES.PROFILE_PAGE]: "Профиль",
+  [ROUTES.ORGANIZATION_PAGE]: 'Ао "Аоаоао"',
 };
