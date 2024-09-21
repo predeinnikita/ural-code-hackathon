@@ -1,7 +1,6 @@
-﻿using Domain.Services;
-using Microsoft.AspNetCore.Authorization;
+﻿using Aoaoao.Infra.ModelMapping;
+using Domain.Services;
 using Microsoft.AspNetCore.Mvc;
-using WebApi.Dto.BusinessOrganization;
 using WebApi.Dto.Vacancy;
 
 namespace WebApi.Controllers;
@@ -22,17 +21,6 @@ public class VacancyController : ControllerBase
     public async Task<ActionResult<VacancyDto[]>> GetAllVacancies()
     {
         var result = await vacancyService.FindAllVacancies(HttpContext.RequestAborted);
-        return Ok(result
-            .Select(x => new VacancyDto
-            {
-                Id = x.Id,
-                Name = x.Name,
-                BusinessOrganization = new BusinessOrganizationDto
-                {
-                    Id = x.BusinessOrganization.Id,
-                    Name = x.BusinessOrganization.Name
-                }
-            })
-            .ToArray());
+        return Ok(result.Map<VacancyDto[]>());
     }
 }

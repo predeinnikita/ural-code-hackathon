@@ -8,6 +8,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApi", "WebApi\WebApi.csp
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WebApi", "WebApi", "{0699FBDF-989A-4089-8D4A-3B6A12B77F27}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infra", "Infra", "{189C58AF-5294-487F-9730-5B4DFBBF8FED}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Aoaoao.Infra.ModelMapping", "Infra\ModelMapping\Aoaoao.Infra.ModelMapping\Aoaoao.Infra.ModelMapping.csproj", "{FF467C97-60E5-444E-8D75-F35D4547E21F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -26,8 +30,13 @@ Global
 		{48B6046E-DE5D-419D-B401-D2A10E0BF04C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{48B6046E-DE5D-419D-B401-D2A10E0BF04C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{48B6046E-DE5D-419D-B401-D2A10E0BF04C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FF467C97-60E5-444E-8D75-F35D4547E21F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FF467C97-60E5-444E-8D75-F35D4547E21F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FF467C97-60E5-444E-8D75-F35D4547E21F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FF467C97-60E5-444E-8D75-F35D4547E21F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{48B6046E-DE5D-419D-B401-D2A10E0BF04C} = {0699FBDF-989A-4089-8D4A-3B6A12B77F27}
+		{FF467C97-60E5-444E-8D75-F35D4547E21F} = {189C58AF-5294-487F-9730-5B4DFBBF8FED}
 	EndGlobalSection
 EndGlobal

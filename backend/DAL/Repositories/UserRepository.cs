@@ -17,8 +17,10 @@ public class UserRepository : IUserRepository
         this.context = context;
     }
 
-    public async Task<User?> FindById(int userId, CancellationToken cancellationToken) =>
-        await context.Users
+    public async Task<User?> FindById(int userId, CancellationToken cancellationToken)
+    {
+        return await context.Users
             .Where(x => x.Id == userId)
             .FirstOrDefaultAsync(cancellationToken);
+    }
 }

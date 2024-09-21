@@ -7,8 +7,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\DAL\DAL.csproj" />
-        <ProjectReference Include="..\Infra\ModelMapping\Aoaoao.Infra.ModelMapping\Aoaoao.Infra.ModelMapping.csproj" />
+        <PackageReference Include="Mapster" Version="6.5.1"/>
     </ItemGroup>
 
 </Project>

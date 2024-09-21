@@ -2,6 +2,7 @@ using DAL;
 using DAL.Repositories;
 
 using System.Reflection;
+using Aoaoao.Infra.ModelMapping;
 using Domain.Services;
 using LightInject;
 
@@ -10,7 +11,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Host.UseLightInject(services => services.RegisterAssembly(Assembly.GetExecutingAssembly(), () => new PerRequestLifeTime(), (service, _) => service.IsInterface));
 
 // Add services to the container.
-
+Mapper.ScanAndEnsureConfigurations(Assembly.GetExecutingAssembly());
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
