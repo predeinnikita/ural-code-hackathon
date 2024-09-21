@@ -2,7 +2,6 @@
 using Domain.Models.Vacancy;
 using Domain.Models.VacancyClaim;
 using Domain.Services;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using WebApi.Dto.Vacancy;
 using WebApi.Extensions;
@@ -11,7 +10,6 @@ namespace WebApi.Controllers;
 
 [ApiController]
 [Route("api/vacancies")]
-[AllowAnonymous]
 public class VacancyController : ControllerBase
 {
     private readonly IVacancyService vacancyService;
