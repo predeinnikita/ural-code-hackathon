@@ -12,6 +12,7 @@ export const OrganizationClaimListItem: FC<OrganizationClaimListItemProps> = ({
   title,
   tags,
   vuz,
+  description
 }) => {
   const navigate = useNavigate();
 
@@ -40,4 +41,5 @@ export interface OrganizationClaimListItemProps {
   title: string;
   tags: string[];
   vuz: string;
+  description: string;
 }

@@ -14,7 +14,8 @@ import { ROUTES } from "../../components/routing/routes";
 import { useNavigate } from "react-router-dom";
 
 export const StudentClaimPage: FC = () => {
-  const [tags, setTags] = useState<string[]>(["Тэг1", "Тэг2"]);
+  const [tags, setTags] = useState<string[]>(["Frontend", "1 год опыта"]);
+  const navigate = useNavigate();
 
   return (
     <Stack direction="column">
@@ -37,11 +38,11 @@ export const StudentClaimPage: FC = () => {
                 })}
               </Stack>
               <Grid sx={{ mt: "16px" }}>
-                <CustomTextarea minRows={3} placeholder={"Описание..."} />
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos culpa ex maiores id in. Illum libero quia facere nam consectetur? Nostrum doloribus autem delectus! Quidem ut illum accusamus deleniti mollitia!
               </Grid>
             </Stack>
           </CardContent>
-          <CardActions>
+          <CardActions onClick={() => navigate(ROUTES.ORGANIZATION_CLAIM_LIST_PAGE)}>
             <Button size="small" variant="contained" color="primary">
               Принять
             </Button>
