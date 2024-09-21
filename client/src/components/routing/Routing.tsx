@@ -1,5 +1,5 @@
 import { FC, Suspense } from "react";
-import { Route, Routes, Outlet } from "react-router";
+import { Route, Routes } from "react-router";
 import { ROUTES } from "./routes";
 import { AppContainer } from "../app-container";
 import { AuthPage } from "../../pages/auth-page/AuthPage";
