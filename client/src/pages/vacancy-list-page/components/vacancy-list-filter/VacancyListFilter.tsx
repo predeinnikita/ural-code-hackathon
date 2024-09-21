@@ -3,13 +3,13 @@ import { CustomAutocompleteSelect } from "../custom-autocomplete-select";
 import Grid from "@mui/material/Grid2";
 
 import styles from "./VacancyListFilter.module.scss";
-import {CustomRadioGroup, CustomRadioGroupItem} from "../custom-radio-group";
+import { CustomRadioGroup, CustomRadioGroupItem } from "../custom-radio-group";
 
 export const VacancyListFilter: FC<any> = () => {
   const [state, setState] = useState<CustomRadioGroupItem[]>([
-      { title: 'Хуй 1', value: '1' },
-      { title: 'Хуй 2', value: '2' },
-      { title: 'Хуй 3', value: '3' }
+    { title: "Хуй 1", value: "1" },
+    { title: "Хуй 2", value: "2" },
+    { title: "Хуй 3", value: "3" },
   ]);
 
   return (

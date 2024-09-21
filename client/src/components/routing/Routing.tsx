@@ -15,7 +15,10 @@ export const Routing: FC = () => {
         <Routes>
           <Route path={ROUTES.AUTHORIZED_PAGE} element={<AuthPage />} />
           <Route path={ROUTES.VACANCY_PAGE} element={<VacancyPage />} />
-          <Route path={ROUTES.VACANCY_LIST_PAGE} element={<VacancyListPage />} />
+          <Route
+            path={ROUTES.VACANCY_LIST_PAGE}
+            element={<VacancyListPage />}
+          />
           <Route path={ROUTES.VACANCY_PAGE} element={<VacancyPage />} />
           <Route path={ROUTES.CLAIMS_PAGE} element={<StudentClaimsPage />} />
           <Route path={"*"} element={<NotFoundPage />} />

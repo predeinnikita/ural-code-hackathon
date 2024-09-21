@@ -17,7 +17,7 @@ export const VacancyListItem: FC<VacancyListItemProps> = ({
   organization,
 }) => {
   return (
-    <Card sx={{ maxWidth: '100%' }}>
+    <Card sx={{ maxWidth: "100%" }}>
       <CardActionArea>
         <CardMedia
           component="img"

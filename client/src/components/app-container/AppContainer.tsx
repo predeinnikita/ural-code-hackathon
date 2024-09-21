@@ -6,7 +6,7 @@ import Grid from "@mui/material/Grid2";
 export const AppContainer: FC<PropsWithChildren> = ({ children }) => {
   return (
     <Grid spacing={2}>
-      <Grid size={12} sx={{ mb: '16px' }}>
+      <Grid size={12} sx={{ mb: "16px" }}>
         <AppHeader />
       </Grid>
       <Grid size={12}>
