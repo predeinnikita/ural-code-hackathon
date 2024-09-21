@@ -1,4 +1,5 @@
-﻿using DAL.Repositories;
+﻿using Aoaoao.Infra.ModelMapping;
+using DAL.Repositories;
 using Domain.Models.BusinessOrganization;
 using Domain.Models.Vacancy;
 
@@ -21,17 +22,6 @@ public class VacancyService : IVacancyService
     public async Task<IReadOnlyCollection<VacancyModel>> FindAllVacancies(CancellationToken cancellationToken = default)
     {
         var vacancies = await vacancyRepository.FindAll(cancellationToken);
-        return vacancies
-            .Select(x => new VacancyModel
-            {
-                Id = x.Id,
-                Name = x.Name,
-                BusinessOrganization = new BusinessOrganizationModel
-                {
-                    Id = x.BusinessOrganization.Id,
-                    Name = x.BusinessOrganization.Name
-                }
-            })
-            .ToArray();
+        return vacancies.Map<VacancyModel[]>();
     }
 }
