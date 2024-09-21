@@ -12,4 +12,12 @@ public sealed class AoaoaoDbContext : DbContext, IAoaoaoDbContext
     }
 
     public DbSet<User> Users { get; set; }
+    public DbSet<BusinessOrganization> BusinessOrganizations { get; set; }
+    public DbSet<Vacancy> Vacancies { get; set; }
+
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        base.OnModelCreating(modelBuilder);
+        modelBuilder.ApplyConfigurationsFromAssembly(typeof(AoaoaoDbContext).Assembly);
+    }
 }
