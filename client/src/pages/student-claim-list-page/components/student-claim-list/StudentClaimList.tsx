@@ -10,12 +10,12 @@ import {
 export const StudentClaimList: FC<any> = () => {
   const [state, setState] = useState<StudentClaimListItemProps[]>([
     {
-      title: "Frontend-разработчик",
+      title: "Инженер",
       company: "Сбербанк",
       status: "Ожидает"
     },
     {
-      title: "Инженер ПО",
+      title: "Frontend-разработчик",
       company: "ЗАО Рду",
       status: "Приглашение"
     },
