@@ -12,7 +12,7 @@ export const AppHeader: FC<any> = () => {
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
 
   const handleClickProfile = () => {
-    navigate(ROUTES.PROFILE);
+    navigate(ROUTES.PROFILE_PAGE);
 
     setAnchorEl(null);
   };
@@ -46,7 +46,7 @@ export const AppHeader: FC<any> = () => {
           </div>
           <div
             className={styles.navigationItem}
-            onClick={() => navigate(ROUTES.STATISTICS)}
+            onClick={() => navigate(ROUTES.STATISTICS_PAGE)}
           >
             Статистика
           </div>
@@ -56,7 +56,7 @@ export const AppHeader: FC<any> = () => {
             size="small"
             variant="outlined"
             sx={{ mr: "16px" }}
-            onClick={() => navigate(ROUTES.CREATE_VACANCY)}
+            onClick={() => navigate(ROUTES.CREATE_VACANCY_PAGE)}
           >
             Создать вакансию
           </Button>

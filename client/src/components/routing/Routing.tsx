@@ -13,6 +13,7 @@ import { OrganizationClaimListPage } from "../../pages/organization-claim-list-p
 import { StudentClaimPage } from "../../pages/student-claim-page/StudentClaimPage";
 import { ProfilePage } from "../../pages/profile-page/ProfilePage";
 import { MainPage } from "../../pages/main-page/MainPage";
+import { OrganizationPage } from "../../pages/organization-page/OrganizationPage";
 
 export const Routing: FC = () => {
   return (
@@ -38,9 +39,16 @@ export const Routing: FC = () => {
             path={ROUTES.STUDENT_CLAIM_PAGE}
             element={<StudentClaimPage />}
           />
-          <Route path={ROUTES.CREATE_VACANCY} element={<CreateVacancy />} />
-          <Route path={ROUTES.STATISTICS} element={<StatisticsPage />} />
-          <Route path={ROUTES.PROFILE} element={<ProfilePage />} />
+          <Route
+            path={ROUTES.CREATE_VACANCY_PAGE}
+            element={<CreateVacancy />}
+          />
+          <Route path={ROUTES.STATISTICS_PAGE} element={<StatisticsPage />} />
+          <Route path={ROUTES.PROFILE_PAGE} element={<ProfilePage />} />
+          <Route
+            path={ROUTES.ORGANIZATION_PAGE}
+            element={<OrganizationPage />}
+          />
 
           <Route path={"*"} element={<NotFoundPage />} />
         </Routes>

@@ -1,10 +1,14 @@
-import { Card, CardContent, Button } from "@mui/material";
+import { Card, CardContent, Button, Link } from "@mui/material";
 import { FC } from "react";
 import styles from "./VacancyPage.module.scss";
 import Typography from "@mui/material/Typography";
 import CardActions from "@mui/material/CardActions";
+import { useNavigate } from "react-router-dom";
+import { ROUTES } from "../../components/routing/routes";
 
 export const VacancyPage: FC = () => {
+  const navigate = useNavigate();
+
   return (
     <div className={styles.card}>
       <Card sx={{ minWidth: 275 }}>
@@ -15,7 +19,11 @@ export const VacancyPage: FC = () => {
           <Typography variant="h6" fontWeight="bold">
             Компания
           </Typography>
-          <Typography variant="subtitle1">Ао "Аоаоао"</Typography>
+          <Typography variant="subtitle1">
+            <Link onClick={() => navigate(ROUTES.ORGANIZATION_PAGE)}>
+              Ао "Аоаоао"
+            </Link>
+          </Typography>
           <Typography variant="h6" fontWeight="bold">
             Зарплата
           </Typography>
