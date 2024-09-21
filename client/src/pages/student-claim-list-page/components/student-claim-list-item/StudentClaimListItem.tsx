@@ -6,9 +6,12 @@ import Button from "@mui/material/Button";
 import Chip from "@mui/material/Chip";
 import Stack from "@mui/material/Stack";
 import CardActions from "@mui/material/CardActions";
+import { Hidder } from "../../../../components/shared/hidder/Hidder";
 
 export const StudentClaimListItem: FC<StudentClaimListItemProps> = ({
   title,
+  company,
+  status
 }) => {
   return (
     <Card sx={{ maxWidth: "100%" }}>
@@ -17,19 +20,21 @@ export const StudentClaimListItem: FC<StudentClaimListItemProps> = ({
           {title}
         </Typography>
         <Typography gutterBottom variant="caption" component="div">
-          Прософт системы
+          { company }
         </Typography>
         <Stack direction="row" spacing={1}>
-          <Chip label={"Ожидает"} variant="outlined" />
+          <Chip label={status} variant="outlined" />
         </Stack>
       </CardContent>
       <CardActions>
+      <Hidder condition={status === 'Приглашение'}>
         <Button size="small" variant="contained" color="primary">
           Принять
         </Button>
         <Button size="small" variant="outlined" color="primary">
           Отказаться
         </Button>
+      </Hidder>
       </CardActions>
     </Card>
   );
@@ -37,4 +42,6 @@ export const StudentClaimListItem: FC<StudentClaimListItemProps> = ({
 
 export interface StudentClaimListItemProps {
   title: string;
+  company: string;
+  status: 'Ожидает' | 'Приглашение' | 'Отказ' | 'Тестовое';
 }
