@@ -4,6 +4,7 @@ using Domain.Models.VacancyClaim;
 using Domain.Services;
 using Microsoft.AspNetCore.Mvc;
 using WebApi.Dto.Vacancy;
+using WebApi.Extensions;
 
 namespace WebApi.Controllers;
 
@@ -42,7 +43,7 @@ public class VacancyController : ControllerBase
     {
         var request = new SendVacancyClaimRequest
         {
-            UserId = Guid.NewGuid(), // TODO
+            UserId = User.GetUserId(),
             VacancyId = vacancyId
         };
         await vacancyService.SendClaim(request, HttpContext.RequestAborted);
