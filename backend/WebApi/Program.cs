@@ -35,4 +35,9 @@ app.UseAuthorization();
 
 app.MapControllers();
 
+using (var context = app.Services.GetService<AoaoaoDbContext>()!)
+{
+    context.Database.Migrate();
+}
+
 app.Run();
