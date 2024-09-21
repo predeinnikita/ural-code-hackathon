@@ -22,12 +22,9 @@ export const AppContainer: FC<PropsWithChildren> = ({ children }) => {
         <div className={styles.wrapper}>
           <div className={styles.main}>
             <Breadcrumbs>
-              <Button variant="text" onClick={() => navigate(-1)}>
-                Назад
-              </Button>
               {location.pathname
                 .split("/")
-                .splice(1)
+                // .splice(1)
                 .map((x: any, i) => {
                   const title: string =
                     (ROUTE_TITLES as any)["/" + x] ?? "Страница не найдена";
