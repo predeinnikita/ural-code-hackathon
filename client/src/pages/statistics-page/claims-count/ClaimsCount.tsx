@@ -2,6 +2,7 @@ import { BarElement, CategoryScale, Chart, ChartData, LinearScale } from "chart.
 import { FC, useEffect, useRef } from "react";
 import { Bar, Doughnut } from "react-chartjs-2";
 import { specialities, specialitiesStats } from "./statistics";
+import styles from './ClaimsCount.module.scss';
 
 export const ClaimsCount: FC = () => {
 
@@ -16,7 +17,7 @@ export const ClaimsCount: FC = () => {
   };
 
   return (
-    <div>
+    <div className={styles.stats}>
       <Doughnut
           options={{
             responsive: true,

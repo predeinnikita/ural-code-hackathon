@@ -63,6 +63,7 @@ export const CustomTextarea: FC<CustomTextareaProps> = ({
   return (
     <Textarea
       sx={{ width: "100%" }}
+      readOnly={true}
       aria-label="minimum height"
       minRows={minRows ?? 1}
       placeholder={placeholder ?? ""}
