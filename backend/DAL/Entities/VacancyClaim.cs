@@ -10,4 +10,6 @@ public class VacancyClaim
     public Guid StudentId { get; set; }
     public bool? OrganizationAccepted { get; set; }
     public bool? StudentAccepted { get; set; }
+
+    public Vacancy Vacancy { get; set; }
 }

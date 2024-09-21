@@ -27,6 +27,7 @@ public class VacancyClaimRepository : IVacancyClaimRepository
     public async Task<IReadOnlyCollection<VacancyClaim>> FindByStudentId(Guid studentId, CancellationToken cancellationToken)
     {
         return await context.VacancyClaims
+            .Include(x => x.Vacancy)
             .Where(x => x.StudentId == studentId)
             .ToArrayAsync(cancellationToken);
     }
