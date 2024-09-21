@@ -19,7 +19,7 @@ export const StudentClaimPage: FC = () => {
       <Card sx={{ width: "100%", maxWidth: "640px", p: "16px" }}>
         <CardContent>
           <Stack direction="column">
-            <Typography variant="h5">Никита пидор</Typography>
+            <Typography variant="h5">Никита</Typography>
             <Stack direction="row" spacing={1} sx={{ mt: "8px" }}>
               {tags.map((x: string, i: number) => {
                 return (

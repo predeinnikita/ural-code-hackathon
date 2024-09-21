@@ -13,7 +13,7 @@ import { StudentClaimPage } from "../../pages/student-claim-page/StudentClaimPag
 
 export const Routing: FC = () => {
   return (
-    <Suspense fallback={<>Пошел нахуй...</>}>
+    <Suspense fallback={<>Загрузка...</>}>
       <AppContainer>
         <Routes>
           <Route path={ROUTES.AUTHORIZED_PAGE} element={<AuthPage />} />
