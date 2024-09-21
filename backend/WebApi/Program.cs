@@ -35,7 +35,8 @@ builder.Services.AddAuthorization(options => { options.FallbackPolicy = new Auth
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<AoaoaoDbContext>(options =>
-    options.UseNpgsql(builder.Configuration.GetConnectionString("Aoaoao")!));
+        options.UseNpgsql(builder.Configuration.GetConnectionString("Aoaoao")!),
+    contextLifetime: ServiceLifetime.Transient);
 builder.Services.AddSingleton<IUserRepository, UserRepository>();
 builder.Services.AddSingleton<IVacancyRepository, VacancyRepository>();
 builder.Services.AddSingleton<IVacancyService, VacancyService>();

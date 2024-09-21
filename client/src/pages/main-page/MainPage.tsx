@@ -5,7 +5,7 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Stack from "@mui/material/Stack";
 
-export const NotFoundPage: FC = () => {
+export const MainPage: FC = () => {
   const navigate = useNavigate();
 
   return (
@@ -17,10 +17,8 @@ export const NotFoundPage: FC = () => {
         alignItems: "center",
       }}
     >
-      <Typography sx={{ mb: "16px" }} variant="h3">404</Typography>
-      <Button variant="contained" onClick={() => navigate(ROUTES.MAIN_PAGE)}>
-        На главную
-      </Button>
+      <Typography sx={{ mb: "16px" }} variant="h3">Главная</Typography>
+      <Typography variant="h3">Да Это главная!</Typography>
     </Stack>
   );
 };

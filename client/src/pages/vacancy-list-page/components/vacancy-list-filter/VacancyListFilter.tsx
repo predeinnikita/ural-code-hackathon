@@ -50,7 +50,12 @@ export const VacancyListFilter: FC<any> = () => {
         <CustomCheckboxGroup label={"График работы"} items={work} />
       </Grid>
       <Grid size={12}>
-        <SalarySlider label={"Зарплата"} />
+        <SalarySlider
+          label={"Зарплата, тыс. руб"}
+          min={0}
+          max={500}
+          defaultValue={[0, 200]}
+        />
       </Grid>
     </Grid>
   );

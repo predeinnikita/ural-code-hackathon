@@ -10,4 +10,7 @@ export const URLS = {
   [ConnectorType.VACANCY]: {
     CREATE: `${ApiType.API}/vacancies`,
   },
+  [ConnectorType.COMMON]: {
+    GET_INFO: `${ApiType.API}/`,
+  },
 };

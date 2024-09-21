@@ -1,10 +1,11 @@
-using DAL.Entities;
+﻿using DAL.Entities;
 using Microsoft.EntityFrameworkCore;
 
 namespace DAL.Repositories;
 
 public interface IBusinessOrganizationRepository
 {
+    Task<BusinessOrganization?> FindById(Guid id, CancellationToken cancellationToken);
     Task<BusinessOrganization?> FindByLoginAndPassword(string login, string passwordHash, CancellationToken cancellationToken);
 }
 
@@ -21,4 +22,11 @@ public class BusinessOrganizationRepository : IBusinessOrganizationRepository
         => await context.BusinessOrganizations
             .Where(s => s.Login == login && s.PasswordHash == passwordHash)
             .FirstOrDefaultAsync(cancellationToken);
+
+    public Task<BusinessOrganization?> FindById(Guid id, CancellationToken cancellationToken)
+    {
+        return context.BusinessOrganizations
+            .Where(x => x.Id == id)
+            .FirstOrDefaultAsync(cancellationToken);
+    }
 }
