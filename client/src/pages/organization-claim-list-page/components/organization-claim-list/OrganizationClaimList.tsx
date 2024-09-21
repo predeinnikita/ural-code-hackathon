@@ -12,26 +12,31 @@ export const OrganizationClaimList: FC<any> = () => {
       title: "Никита",
       tags: ["1 курс", "Без опыт"],
       vuz: "УрФУ",
+      description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt laboriosam magnam quas, possimus recusandae vitae saepe molestias omnis assumenda ducimus exercitationem dolores distinctio natus reprehenderit neque incidunt quam itaque quo?"
     },
     {
       title: "Артем",
       tags: ["1 курс", "Без опыт"],
       vuz: "УрФУ",
+      description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt laboriosam magnam quas, possimus recusandae vitae saepe molestias omnis assumenda ducimus exercitationem dolores distinctio natus reprehenderit neque incidunt quam itaque quo?"
     },
     {
       title: "Кирилл",
       tags: ["1 курс", "Без опыт"],
       vuz: "УрФУ",
+      description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt laboriosam magnam quas, possimus recusandae vitae saepe molestias omnis assumenda ducimus exercitationem dolores distinctio natus reprehenderit neque incidunt quam itaque quo?"
     },
     {
       title: "Cаня",
       tags: ["1 курс", "Без опыт"],
       vuz: "УрФУ",
+      description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt laboriosam magnam quas, possimus recusandae vitae saepe molestias omnis assumenda ducimus exercitationem dolores distinctio natus reprehenderit neque incidunt quam itaque quo?"
     },
     {
       title: "Дима",
       tags: ["1 курс", "Без опыт"],
       vuz: "УрФУ",
+      description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt laboriosam magnam quas, possimus recusandae vitae saepe molestias omnis assumenda ducimus exercitationem dolores distinctio natus reprehenderit neque incidunt quam itaque quo?"
     },
   ]);
 

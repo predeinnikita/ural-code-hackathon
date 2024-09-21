@@ -10,43 +10,48 @@ import { StudentClaimListItemProps } from "../student-claim-list-page/components
 import CardActions from "@mui/material/CardActions";
 import Button from "@mui/material/Button";
 import { CustomTextarea } from "../../components/custom-textarea/CustomTextarea";
+import { ROUTES } from "../../components/routing/routes";
+import { useNavigate } from "react-router-dom";
 
 export const StudentClaimPage: FC = () => {
-  const [tags, setTags] = useState<any[]>(["Тэг1", "Тэг2"]);
+  const [tags, setTags] = useState<string[]>(["Frontend", "1 год опыта"]);
+  const navigate = useNavigate();
 
   return (
-    <Grid sx={{ display: "flex", justifyContent: "center" }}>
-      <Card sx={{ width: "100%", maxWidth: "640px", p: "16px" }}>
-        <CardContent>
-          <Stack direction="column">
-            <Typography variant="h5">Никита</Typography>
-            <Stack direction="row" spacing={1} sx={{ mt: "8px" }}>
-              {tags.map((x: string, i: number) => {
-                return (
-                  <Chip
-                    color="primary"
-                    variant="outlined"
-                    key={i}
-                    label={x}
-                    size="small"
-                  />
-                );
-              })}
+    <Stack direction="column">
+      <Grid sx={{ display: "flex", justifyContent: "center" }}>
+        <Card sx={{ width: "100%", maxWidth: "640px", p: "16px" }}>
+          <CardContent>
+            <Stack direction="column">
+              <Typography variant="h5">Никита</Typography>
+              <Stack direction="row" spacing={1} sx={{ mt: "8px" }}>
+                {tags.map((x: string, i: number) => {
+                  return (
+                    <Chip
+                      color="primary"
+                      variant="outlined"
+                      key={i}
+                      label={x}
+                      size="small"
+                    />
+                  );
+                })}
+              </Stack>
+              <Grid sx={{ mt: "16px" }}>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos culpa ex maiores id in. Illum libero quia facere nam consectetur? Nostrum doloribus autem delectus! Quidem ut illum accusamus deleniti mollitia!
+              </Grid>
             </Stack>
-            <Grid sx={{ mt: "16px" }}>
-              <CustomTextarea minRows={3} placeholder={"Описание..."} />
-            </Grid>
-          </Stack>
-        </CardContent>
-        <CardActions>
-          <Button size="small" variant="contained" color="primary">
-            Принять
-          </Button>
-          <Button size="small" variant="outlined" color="primary">
-            Отказаться
-          </Button>
-        </CardActions>
-      </Card>
-    </Grid>
+          </CardContent>
+          <CardActions onClick={() => navigate(ROUTES.ORGANIZATION_CLAIM_LIST_PAGE)}>
+            <Button size="small" variant="contained" color="primary">
+              Принять
+            </Button>
+            <Button size="small" variant="outlined" color="primary">
+              Отказаться
+            </Button>
+          </CardActions>
+        </Card>
+      </Grid>
+    </Stack>
   );
 };

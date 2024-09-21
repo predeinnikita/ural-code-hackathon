@@ -10,19 +10,29 @@ import {
 export const StudentClaimList: FC<any> = () => {
   const [state, setState] = useState<StudentClaimListItemProps[]>([
     {
-      title: "Прософт системы 1",
+      title: "Frontend-разработчик",
+      company: "Сбербанк",
+      status: "Ожидает"
     },
     {
-      title: "Прософт системы 2",
+      title: "Инженер ПО",
+      company: "ЗАО Рду",
+      status: "Приглашение"
     },
     {
-      title: "Прософт системы 3",
+      title: "Тестировщик",
+      company: "СКБ Контур",
+      status: "Отказ"
     },
     {
-      title: "Прософт системы 4",
+      title: "SMM-менеджер",
+      company: "Яндекс",
+      status: "Тестовое"
     },
     {
-      title: "Прософт системы 5",
+      title: "Проектный менеджер",
+      company: "Тинькофф",
+      status: "Ожидает"
     },
   ]);
 
@@ -34,7 +44,7 @@ export const StudentClaimList: FC<any> = () => {
             key={index}
             sx={{ mb: state.length - 1 === index ? "0" : "8px" }}
           >
-            <StudentClaimListItem title={x.title} />
+            <StudentClaimListItem title={x.title} company={x.company} status={x.status} />
           </Grid>
         );
       })}
