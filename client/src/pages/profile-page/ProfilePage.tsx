@@ -1,10 +1,10 @@
 import { Card, CardContent, Button } from "@mui/material";
 import { FC } from "react";
-import styles from "./VacancyPage.module.scss";
+import styles from "./ProfilePage.module.scss";
 import Typography from "@mui/material/Typography";
 import CardActions from "@mui/material/CardActions";
 
-export const VacancyPage: FC = () => {
+export const ProfilePage: FC = () => {
   return (
     <div className={styles.card}>
       <Card sx={{ minWidth: 275 }}>
@@ -17,9 +17,9 @@ export const VacancyPage: FC = () => {
           </Typography>
           <Typography variant="subtitle1">Ао "Аоаоао"</Typography>
           <Typography variant="h6" fontWeight="bold">
-            Зарплата
+            Зарплатные ожидания
           </Typography>
-          <Typography variant="subtitle1">50 000 руб.</Typography>
+          <Typography variant="subtitle1">70 000 руб.</Typography>
           <Typography variant="h6" fontWeight="bold">
             Период
           </Typography>
@@ -34,14 +34,14 @@ export const VacancyPage: FC = () => {
             Описание
           </Typography>
           <Typography variant="subtitle1">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur
-            omnis dicta, perspiciatis commodi, voluptatem quos, placeat itaque
-            tempora quae alias in ipsa? Nam inventore ratione ut dolorem
-            debitis, tenetur iste.
+            Специалист, который создает интерфейсы веб-сайтов и приложений.
+            Проще говоря, разрабатывает внешний вид интернет-площадок: это
+            картинки, выпадающие списки, анимация, карточки товаров и все, с чем
+            может взаимодействовать пользователь
           </Typography>
         </CardContent>
         <CardActions>
-          <Button variant="contained">Подать заявку</Button>
+          <Button variant="contained">Редактировать</Button>
         </CardActions>
       </Card>
     </div>
