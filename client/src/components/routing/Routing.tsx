@@ -6,7 +6,6 @@ import { AuthPage } from "../../pages/auth-page/AuthPage";
 import { NotFoundPage } from "../../pages/not-found-page/NotFoundPage";
 import { VacancyPage } from "../../pages/vacancy-page/VacancyPage";
 import { VacancyListPage } from "../../pages/vacancy-list-page/VacancyListPage";
-import { StudentClaimsPage } from "../../pages/claims-page/StudentClaimsPage";
 import { StatisticsPage } from "../../pages/statistics-page/StatisticsPage";
 import { CreateVacancy } from "../../pages/create-vacancy/CreateVacancy";
 import { StudentClaimListPage } from "../../pages/student-claim-list-page/StudentClaimListPage";

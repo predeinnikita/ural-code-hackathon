@@ -84,7 +84,7 @@ export const CreateVacancy: FC = () => {
           <DatePicker
             value={dayjs(values.period.start)}
             name="start"
-            onChange={(e) =>
+            onChange={(e: any) =>
               handleChange({
                 target: { name: "start", values: e?.toISOString() },
               })
@@ -93,7 +93,7 @@ export const CreateVacancy: FC = () => {
           <DatePicker
             value={dayjs(values.period.end)}
             name="end"
-            onChange={(e) =>
+            onChange={(e: any) =>
               handleChange({
                 target: { name: "end", values: e?.toISOString() },
               })
