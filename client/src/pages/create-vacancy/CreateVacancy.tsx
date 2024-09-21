@@ -3,20 +3,14 @@ import styles from "./CreateVacancy.module.scss";
 import { useFormik } from "formik";
 import { Button, Input, TextField } from "@mui/material";
 import { DatePicker, LocalizationProvider } from "@mui/x-date-pickers";
+import { CreateVacancyPayload } from "../../typing/vacancy";
+import { useAppDispatch } from "../../redux/store";
+import { createVacancyAsync } from "../../redux/slices/vacancy.slice";
 import dayjs, { Dayjs } from "dayjs";
 
-interface CreateVacancyPayload {
-  period: {
-    start: string | null;
-    end: string | null;
-  };
-  paymemt: string;
-  workingHours: string;
-  description: string;
-  grade: string;
-}
-
 export const CreateVacancy: FC = () => {
+  const dispatch = useAppDispatch();
+
   const { values, handleChange, isValid, submitForm } =
     useFormik<CreateVacancyPayload>({
       initialValues: {
@@ -28,11 +22,43 @@ export const CreateVacancy: FC = () => {
           start: "",
         },
         workingHours: "",
-      } as const,
-      onSubmit: () => {},
-    });
+      },
+      validate: (values) => {
+        return Object.entries(values).reduce(
+          (prev, [key, value]) => {
+            if (typeof value !== "object") {
+              return !!value ? { ...prev } : { ...prev, [key]: true };
+            }
 
-  console.log(values);
+            const { start, end } = value;
+
+            // if (!start) {
+            //   return {
+            //     ...prev,
+            //     //@ts-ignore
+            //     [key]: { ...(prev?.[key] || {}), start: true },
+            //   };
+            // }
+            // if (!end) {
+            //   return {
+            //     ...prev,
+            //     //@ts-ignore
+            //     [key]: { ...(prev?.[key] || {}), end: true },
+            //   };
+            // }
+
+            return { ...prev };
+          },
+
+          {}
+        );
+      },
+      onSubmit: (values) => {
+        if (isValid) {
+          dispatch(createVacancyAsync(values));
+        }
+      },
+    });
 
   return (
     <div className={styles.main}>
@@ -56,19 +82,20 @@ export const CreateVacancy: FC = () => {
         })}
         <div className={styles.date}>
           <DatePicker
-            name="period.start"
-            onChange={(e) => (
-              console.log(e),
-              handleChange({
-                target: { name: "period.start", values: e?.toISOString() },
-              })
-            )}
-          />
-          <DatePicker
-            name="period.end"
+            value={dayjs(values.period.start)}
+            name="start"
             onChange={(e) =>
               handleChange({
-                target: { name: "period.end", values: e?.toISOString() },
+                target: { name: "start", values: e?.toISOString() },
+              })
+            }
+          />
+          <DatePicker
+            value={dayjs(values.period.end)}
+            name="end"
+            onChange={(e) =>
+              handleChange({
+                target: { name: "end", values: e?.toISOString() },
               })
             }
           />
