@@ -2,6 +2,8 @@ namespace WebApi.Models;
 
 public class StudentRegistrationInfoDto : AuthInfoDto
 {
+    public string Login { get; set; }
+    public string Password { get; set; }
     public string FullName { get; set; }
     public string StudentIdNumber { get; set; }
     public string EducationalOrganizationFullName { get; set; }
