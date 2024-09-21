@@ -25,4 +25,13 @@ public class VacancyController : ControllerBase
         var result = await vacancyService.FindAllVacancies(domainRequest, HttpContext.RequestAborted);
         return Ok(result.Map<VacancyDto[]>());
     }
+
+    [HttpPost]
+    [Route("")]
+    public async Task<ActionResult<VacancyDto>> Create([FromBody] CreateVacancyRequestBody body)
+    {
+        var newVacancy =
+            await vacancyService.CreateVacancy(body.Map<CreateVacancyRequest>(), HttpContext.RequestAborted);
+        return Created($"/api/vacancies/{newVacancy.Id}", newVacancy.Map<VacancyDto>());
+    }
 }
