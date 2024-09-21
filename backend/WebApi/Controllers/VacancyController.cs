@@ -1,4 +1,5 @@
 ﻿using Aoaoao.Infra.ModelMapping;
+using Domain.Models.Vacancy;
 using Domain.Services;
 using Microsoft.AspNetCore.Mvc;
 using WebApi.Dto.Vacancy;
@@ -18,9 +19,10 @@ public class VacancyController : ControllerBase
 
     [HttpGet]
     [Route("")]
-    public async Task<ActionResult<VacancyDto[]>> GetAllVacancies()
+    public async Task<ActionResult<VacancyDto[]>> GetAllVacancies([FromQuery] GetVacanciesRequestParams requestParams)
     {
-        var result = await vacancyService.FindAllVacancies(HttpContext.RequestAborted);
+        var domainRequest = requestParams.Map<FindAllVacanciesQuery>();
+        var result = await vacancyService.FindAllVacancies(domainRequest, HttpContext.RequestAborted);
         return Ok(result.Map<VacancyDto[]>());
     }
 }
