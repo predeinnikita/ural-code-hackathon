@@ -3,6 +3,7 @@ using System;
 using DAL;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -11,9 +12,10 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace DAL.Migrations
 {
     [DbContext(typeof(AoaoaoDbContext))]
-    partial class AoaoaoDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240921174205_NullableIdOrg")]
+    partial class NullableIdOrg
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -217,31 +219,6 @@ namespace DAL.Migrations
                         .HasForeignKey("EducationalOrganizationId");
 
                     b.Navigation("EducationalOrganization");
-                });
-
-            modelBuilder.Entity("DAL.Entities.VacancyClaim", b =>
-                {
-                    b.Property<long>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("bigint");
-
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<long>("Id"));
-
-                    b.Property<bool?>("OrganizationAccepted")
-                        .HasColumnType("boolean");
-
-                    b.Property<bool?>("StudentAccepted")
-                        .HasColumnType("boolean");
-
-                    b.Property<Guid>("StudentId")
-                        .HasColumnType("uuid");
-
-                    b.Property<Guid>("VacancyId")
-                        .HasColumnType("uuid");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("VacancyClaims");
                 });
 
             modelBuilder.Entity("DAL.Entities.Vacancy", b =>
