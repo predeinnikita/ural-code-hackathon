@@ -5,6 +5,7 @@ import { AppContainer } from "../app-container";
 import { AuthPage } from "../../pages/auth-page/AuthPage";
 import { NotFoundPage } from "../../pages/not-found-page/NotFoundPage";
 import React from "react";
+import { VacancyListPage } from "../../pages/vacancy-list-page/VacancyListPage";
 
 export const Routing: FC = () => {
   return (
@@ -12,6 +13,10 @@ export const Routing: FC = () => {
       <AppContainer>
         <Routes>
           <Route path={ROUTES.AUTHORIZED_PAGE} element={<AuthPage />} />
+          <Route
+            path={ROUTES.VACANCY_LIST_PAGE}
+            element={<VacancyListPage />}
+          />
           <Route path={"*"} element={<NotFoundPage />} />
         </Routes>
       </AppContainer>

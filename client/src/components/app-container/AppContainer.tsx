@@ -1,10 +1,19 @@
 import { FC, PropsWithChildren } from "react";
 import styles from "./AppContainer.module.scss";
+import { AppHeader } from "../app-header";
+import Grid from "@mui/material/Grid2";
 
 export const AppContainer: FC<PropsWithChildren> = ({ children }) => {
   return (
-    <div className={styles.wrapper}>
-      <div className={styles.main}>{children}</div>
-    </div>
+    <Grid spacing={2}>
+      <Grid size={12} sx={{ mb: '16px' }}>
+        <AppHeader />
+      </Grid>
+      <Grid size={12}>
+        <div className={styles.wrapper}>
+          <div className={styles.main}>{children}</div>
+        </div>
+      </Grid>
+    </Grid>
   );
 };
