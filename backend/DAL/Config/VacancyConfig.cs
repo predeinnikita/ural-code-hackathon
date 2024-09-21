@@ -14,6 +14,7 @@ public class VacancyConfig : IEntityTypeConfiguration<Vacancy>
         entity
             .HasOne(e => e.BusinessOrganization)
             .WithMany(e => e.Vacancies)
-            .HasForeignKey(e => e.BusinessOrganizationId);
+            .HasForeignKey(e => e.BusinessOrganizationId)
+            .OnDelete(DeleteBehavior.NoAction);
     }
 }
