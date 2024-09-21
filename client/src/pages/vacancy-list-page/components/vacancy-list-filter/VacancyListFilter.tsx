@@ -16,9 +16,11 @@ import {
 
 export const VacancyListFilter: FC<any> = () => {
   const [work, setWork] = useState<CustomRadioGroupItem[]>([
-    { title: "25/8", value: "1" },
-    { title: "2/2", value: "2" },
-    { title: "4/5", value: "3" },
+    { title: "Полный рабочий день", value: "1" },
+    { title: "Неполный рабочий день", value: "2" },
+    { title: "По выходным", value: "3" },
+    { title: "По вечерам", value: "4" },
+    { title: "От 4 часов в день", value: "5" },
   ]);
   const [expWork, setExpWork] = useState<CustomCheckboxGroupItem[]>([
     { title: "От 1 года", value: "1" },
