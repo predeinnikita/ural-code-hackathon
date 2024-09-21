@@ -1,10 +1,16 @@
 import { Card, CardContent, Button } from "@mui/material";
-import { FC } from "react";
+import { FC, useState } from "react";
 import styles from "./VacancyPage.module.scss";
 import Typography from "@mui/material/Typography";
 import CardActions from "@mui/material/CardActions";
+import { useNavigate } from "react-router";
+import { ROUTES } from "../../components/routing/routes";
 
 export const VacancyPage: FC = () => {
+  const navigate = useNavigate();
+
+  const [sended, setSended] = useState<boolean>(false);
+
   return (
     <div className={styles.card}>
       <Card sx={{ minWidth: 275 }}>
@@ -41,7 +47,12 @@ export const VacancyPage: FC = () => {
           </Typography>
         </CardContent>
         <CardActions>
-          <Button variant="contained">Подать заявку</Button>
+          {
+            sended ? 'Заявка отправлена' : <Button variant="contained" onClick={() => {
+            setSended(true);
+          }}>Подать заявку</Button>
+          }
+          
         </CardActions>
       </Card>
     </div>

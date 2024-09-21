@@ -22,7 +22,7 @@ export const SignUpContainer: FC<Props> = ({
         Как учебное заведение
       </Button>
       <Button variant="outlined" onClick={onClickSigma}>
-        Как СИГМА (бизнес)
+        Как работодатель
       </Button>
     </div>
   );
