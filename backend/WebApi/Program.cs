@@ -3,6 +3,7 @@ using DAL.Repositories;
 
 using System.Reflection;
 using Aoaoao.Infra.ModelMapping;
+using Domain.Services;
 using LightInject;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -18,6 +19,8 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddSingleton<IAoaoaoDbContext>(provider =>
     new AoaoaoDbContext(provider.GetService<IConfiguration>().GetConnectionString("Aoaoao")));
 builder.Services.AddSingleton<IUserRepository, UserRepository>();
+builder.Services.AddSingleton<IVacancyRepository, VacancyRepository>();
+builder.Services.AddSingleton<IVacancyService, VacancyService>();
 
 var app = builder.Build();
 

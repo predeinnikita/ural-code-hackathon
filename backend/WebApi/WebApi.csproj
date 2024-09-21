@@ -20,7 +20,14 @@
 
     <ItemGroup>
       <ProjectReference Include="..\DAL\DAL.csproj" />
+<<<<<<< HEAD
       <ProjectReference Include="..\Infra\ModelMapping\Aoaoao.Infra.ModelMapping\Aoaoao.Infra.ModelMapping.csproj" />
+=======
+      <ProjectReference Include="..\Domain\Domain.csproj" />
+>>>>>>> vacancies
+        <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
+      <ProjectReference Include="..\Infra\ModelMapping\Aoaoao.Infra.ModelMapping\Aoaoao.Infra.ModelMapping.csproj" />
+      <ProjectReference Include="..\Domain\Domain.csproj" />
     </ItemGroup>
 
 </Project>
