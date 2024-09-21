@@ -7,4 +7,5 @@ export enum ROUTES {
   STUDENT_CLAIM_LIST_PAGE = "/student-claim-list",
   ORGANIZATION_CLAIM_LIST_PAGE = "/organization-claim-list",
   STUDENT_CLAIM_PAGE = "/student-claim",
+    CREATE_VACANCY = "/create-vacancy",
 }

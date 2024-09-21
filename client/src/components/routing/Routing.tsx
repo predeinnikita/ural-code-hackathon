@@ -6,6 +6,7 @@ import { AuthPage } from "../../pages/auth-page/AuthPage";
 import { NotFoundPage } from "../../pages/not-found-page/NotFoundPage";
 import { VacancyPage } from "../../pages/vacancy-page/VacancyPage";
 import { VacancyListPage } from "../../pages/vacancy-list-page/VacancyListPage";
+import { CreateVacancy } from "../../pages/create-vacancy/CreateVacancy";
 import { StudentClaimListPage } from "../../pages/student-claim-list-page/StudentClaimListPage";
 import { OrganizationClaimListPage } from "../../pages/organization-claim-list-page/OrganizationClaimListPage";
 import { StudentClaimPage } from "../../pages/student-claim-page/StudentClaimPage";
@@ -33,6 +34,7 @@ export const Routing: FC = () => {
             path={ROUTES.STUDENT_CLAIM_PAGE}
             element={<StudentClaimPage />}
           />
+            <Route path={ROUTES.CREATE_VACANCY} element={<CreateVacancy />} />
           <Route path={"*"} element={<NotFoundPage />} />
         </Routes>
       </AppContainer>

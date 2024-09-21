@@ -4,6 +4,8 @@ import { Routing } from "./components/routing/Routing";
 import { BrowserRouter } from "react-router-dom";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
+import { LocalizationProvider } from "@mui/x-date-pickers";
+import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 
 const theme = createTheme({
   typography: {
@@ -16,9 +18,11 @@ function App() {
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <Provider store={store}>
-        <BrowserRouter>
-          <Routing></Routing>
-        </BrowserRouter>
+        <LocalizationProvider dateAdapter={AdapterDayjs}>
+          <BrowserRouter>
+            <Routing></Routing>
+          </BrowserRouter>
+        </LocalizationProvider>
       </Provider>
     </ThemeProvider>
   );
