@@ -2,6 +2,7 @@ export enum ROUTES {
   AUTH_PAGE = "/auth",
   AUTHORIZED_PAGE = "/",
   MAIN_PAGE = "/main",
+  VACANCY_LIST_PAGE = "/vacancy-list",
   CATEGORY_PAGE = "/category",
   ACTIVITY_PAGE = "/activity",
   ACTIVITY_EDIT_PAGE = "edit",
@@ -10,5 +11,6 @@ export enum ROUTES {
   MESSAGE_PAGE = "/messages",
   MY_ACTIVITIES_PAGE = "/activities",
   PROFILE_PAGE = "/profile",
-  VACANCY_PAGE = "/vacancy"
+  VACANCY_PAGE = "/vacancy",
+  CLAIMS_PAGE = "/claims"
 }
