@@ -11,9 +11,9 @@ public interface IVacancyRepository
 
 public sealed class VacancyRepository : IVacancyRepository
 {
-    private readonly IAoaoaoDbContext context;
+    private readonly AoaoaoDbContext context;
 
-    public VacancyRepository(IAoaoaoDbContext context)
+    public VacancyRepository(AoaoaoDbContext context)
     {
         this.context = context;
     }
