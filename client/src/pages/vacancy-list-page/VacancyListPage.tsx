@@ -4,7 +4,7 @@ import { VacancyListFilter } from "./components/vacancy-list-filter";
 import { VacancyListItem } from "./components/vacancy-list-item";
 import Stack from "@mui/material/Stack";
 import { SearchInput } from "./components/search-input";
-import {VacancyList} from "./components/vacancy-list";
+import { VacancyList } from "./components/vacancy-list";
 
 export const VacancyListPage: FC = () => {
   return (

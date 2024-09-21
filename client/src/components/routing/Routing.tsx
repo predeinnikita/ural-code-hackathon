@@ -20,7 +20,6 @@ export const Routing: FC = () => {
             element={<VacancyListPage />}
           />
           <Route path={ROUTES.CLAIMS_PAGE} element={<StudentClaimsPage />} />
-
           <Route path={"*"} element={<NotFoundPage />} />
         </Routes>
       </AppContainer>

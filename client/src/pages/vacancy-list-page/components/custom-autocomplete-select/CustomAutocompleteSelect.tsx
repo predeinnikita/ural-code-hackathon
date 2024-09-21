@@ -158,7 +158,10 @@ const Listbox = styled("ul")(
 `
 );
 
-export const CustomAutocompleteSelect: FC<CustomAutocompleteSelectProps> = ({ label, items }) => {
+export const CustomAutocompleteSelect: FC<CustomAutocompleteSelectProps> = ({
+  label,
+  items,
+}) => {
   const {
     getRootProps,
     getInputLabelProps,
@@ -180,9 +183,7 @@ export const CustomAutocompleteSelect: FC<CustomAutocompleteSelectProps> = ({ la
 
   return (
     <Root>
-
       <div {...getRootProps()}>
-
         <Label {...getInputLabelProps()}>{label}</Label>
 
         <InputWrapper ref={setAnchorEl} className={focused ? "focused" : ""}>
@@ -194,24 +195,24 @@ export const CustomAutocompleteSelect: FC<CustomAutocompleteSelectProps> = ({ la
 
           <input {...getInputProps()} />
         </InputWrapper>
-
       </div>
 
       {groupedOptions.length > 0 ? (
         <Listbox {...getListboxProps()}>
-          {(groupedOptions as CustomAutocompleteSelectItem[]).map((option, index) => {
-            const { key, ...optionProps } = getOptionProps({ option, index });
+          {(groupedOptions as CustomAutocompleteSelectItem[]).map(
+            (option, index) => {
+              const { key, ...optionProps } = getOptionProps({ option, index });
 
-            return (
-              <li key={key} {...optionProps}>
-                <span>{option.title}</span>
-                <CheckIcon fontSize="small" />
-              </li>
-            );
-          })}
+              return (
+                <li key={key} {...optionProps}>
+                  <span>{option.title}</span>
+                  <CheckIcon fontSize="small" />
+                </li>
+              );
+            }
+          )}
         </Listbox>
       ) : null}
-
     </Root>
   );
 };
