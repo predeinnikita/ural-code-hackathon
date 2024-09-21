@@ -10,4 +10,5 @@ export enum ROUTES {
   MESSAGE_PAGE = "/messages",
   MY_ACTIVITIES_PAGE = "/activities",
   PROFILE_PAGE = "/profile",
+  VACANCY_PAGE = "/vacancy"
 }
