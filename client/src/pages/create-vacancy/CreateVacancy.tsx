@@ -121,20 +121,16 @@ export const CreateVacancy: FC = () => {
         <DatePicker
           value={dayjs(values.start)}
           name="start"
-          onChange={(e) =>
-            handleChange({
-              target: { name: "start", values: e?.toISOString() },
-            })
-          }
+          onChange={(e) => {
+            setValues({ ...values, start: e?.toISOString() || "" });
+          }}
         />
         <DatePicker
           value={dayjs(values.end)}
           name="end"
-          onChange={(e) =>
-            handleChange({
-              target: { name: "end", values: e?.toISOString() },
-            })
-          }
+          onChange={(e) => {
+            setValues({ ...values, end: e?.toISOString() || "" });
+          }}
         />
       </div>
       <Button disabled={!isValid} onClick={submitForm} variant="contained">
