@@ -1,21 +1,21 @@
 import { FC } from "react";
 import Grid from "@mui/material/Grid2";
-import { VacancyListFilter } from "./components/vacancy-list-filter";
-import { VacancyList } from "./components/vacancy-list";
 import { SearchInput } from "../../components/search-input";
+import { OrganizationClaimList } from "./components/organization-claim-list";
+import { OrganizationListFilter } from "./components/organization-claim-list-filter";
 
-export const VacancyListPage: FC = () => {
+export const OrganizationClaimListPage: FC = () => {
   return (
     <Grid container size={12}>
       <Grid size={4} sx={{ pr: "16px" }}>
-        <VacancyListFilter />
+        <OrganizationListFilter />
       </Grid>
       <Grid container size={8} spacing={2}>
         <Grid size={12}>
           <SearchInput />
         </Grid>
         <Grid size={12}>
-          <VacancyList />
+          <OrganizationClaimList />
         </Grid>
       </Grid>
     </Grid>

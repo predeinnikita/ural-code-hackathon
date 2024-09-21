@@ -14,9 +14,15 @@ export const AppHeader: FC<any> = () => {
         <div className={styles.navigation}>
           <div
             className={styles.navigationItem}
-            onClick={() => navigate(ROUTES.CLAIMS_PAGE)}
+            onClick={() => navigate(ROUTES.STUDENT_CLAIM_LIST_PAGE)}
           >
-            Заявки
+            Студ Заявки
+          </div>
+          <div
+            className={styles.navigationItem}
+            onClick={() => navigate(ROUTES.ORGANIZATION_CLAIM_LIST_PAGE)}
+          >
+            Орг Заявки
           </div>
           <div
             className={styles.navigationItem}
