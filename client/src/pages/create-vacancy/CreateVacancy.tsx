@@ -55,8 +55,6 @@ export const CreateVacancy: FC = () => {
       },
     });
 
-  console.log(values);
-
   return (
     <div className={styles.main}>
       <div className={styles.title}>Создание вакансии</div>

@@ -34,4 +34,4 @@ const commonSlice = createAppSlice({
 const { actions, reducer } = commonSlice;
 
 export const authReducer = reducer;
-export const {} = actions;
+export const { getInfo: getInfoAsync } = actions;
