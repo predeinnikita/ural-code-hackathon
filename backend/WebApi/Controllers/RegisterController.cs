@@ -17,21 +17,21 @@ public class RegisterController : ControllerBase
         this.registrationHelper = registrationHelper;
     }
 
-    [HttpPost(Name = "student")]
+    [HttpPost("student")]
     public StatusCodeResult RegisterStudent([FromBody] StudentRegistrationInfoDto info)
     {
         registrationHelper.RegisterStudent(info);
         return Ok();
     }
 
-    [HttpPost(Name = "business")]
+    [HttpPost("business")]
     public StatusCodeResult RegisterBusinessOrganization([FromBody] BusinessOrganizationRegistrationInfoDto info)
     {
         registrationHelper.RegisterBusinessOrganization(info);
         return Ok();
     }
 
-    [HttpPost(Name = "educational-org")]
+    [HttpPost("educational-org")]
     public StatusCodeResult RegisterEducationalOrganization([FromBody] EducationalOrganizationRegistrationInfoDto info)
     {
         registrationHelper.RegisterEducationalOrganization(info);

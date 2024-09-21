@@ -1,21 +1,11 @@
-import { FC } from "react";
+import { FC, isValidElement } from "react";
 import { useFormik } from "formik";
 import { Button, Input } from "@mui/material";
 import styles from "./SignUpStudentForm.module.scss";
+import { StudentForm } from "../../../typing/auth";
 
 interface Props {
-  onClickSignUp: () => void;
-}
-
-interface StudentForm {
-  fullName: string;
-  studentIdNumber: string;
-  educationalOrganizationFullName: string;
-  speciality: string;
-  grade: string;
-  experienceLevel: string;
-  email: string;
-  phoneNumber: string;
+  onClickSignUp: (payload: StudentForm) => void;
 }
 
 const INITIAL_STATE: StudentForm = {
@@ -27,12 +17,25 @@ const INITIAL_STATE: StudentForm = {
   phoneNumber: "",
   speciality: "",
   studentIdNumber: "",
+  login: "",
+  password: "",
 };
 
-export const SignUpStudentsForm: FC<Props> = () => {
-  const { values, handleChange } = useFormik<StudentForm>({
+export const SignUpStudentsForm: FC<Props> = ({ onClickSignUp }) => {
+  const { values, handleChange, submitForm, isValid } = useFormik<StudentForm>({
     initialValues: INITIAL_STATE,
-    onSubmit: () => {},
+    validate: (values) => {
+      return Object.entries(values).reduce(
+        (prev, [key, value]) =>
+          !!value ? { ...prev } : { ...prev, [key]: true },
+        {}
+      );
+    },
+    onSubmit: (values) => {
+      if (isValid) {
+        onClickSignUp(values);
+      }
+    },
   });
 
   return (
@@ -48,7 +51,7 @@ export const SignUpStudentsForm: FC<Props> = () => {
           />
         ))}
       </div>
-      <Button>Зарегистрироваться</Button>
+      <Button onClick={submitForm}>Зарегистрироваться</Button>
     </div>
   );
 };
