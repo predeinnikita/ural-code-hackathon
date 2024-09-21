@@ -15,6 +15,8 @@ public interface IVacancyService
     Task<VacancyModel> CreateVacancy(CreateVacancyRequest request, CancellationToken cancellationToken);
 
     Task SendClaim(SendVacancyClaimRequest request, CancellationToken cancellationToken);
+
+    Task<IReadOnlyCollection<VacancyClaimModel>> GetClaimsByUserId(Guid userId, CancellationToken cancellationToken);
 }
 
 public class VacancyService : IVacancyService
@@ -63,6 +65,13 @@ public class VacancyService : IVacancyService
         };
 
         await vacancyClaimRepository.Add(vacancyClaimEntity, cancellationToken);
+    }
+
+    public async Task<IReadOnlyCollection<VacancyClaimModel>> GetClaimsByUserId(Guid userId,
+        CancellationToken cancellationToken)
+    {
+        var vacancyClaimsEntities = await vacancyClaimRepository.FindByStudentId(userId, cancellationToken);
+        return vacancyClaimsEntities.Map<VacancyClaimModel[]>();
     }
 
     private static VacancyFilter MapDomainToDatabaseFilter(VacanciesDomainFilter domainFilter) =>

@@ -2,6 +2,7 @@
 using Domain.Models.Vacancy;
 using Domain.Models.VacancyClaim;
 using Domain.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using WebApi.Dto.Vacancy;
 using WebApi.Extensions;
@@ -10,6 +11,7 @@ namespace WebApi.Controllers;
 
 [ApiController]
 [Route("api/vacancies")]
+[AllowAnonymous]
 public class VacancyController : ControllerBase
 {
     private readonly IVacancyService vacancyService;
@@ -47,5 +49,13 @@ public class VacancyController : ControllerBase
             VacancyId = vacancyId
         };
         await vacancyService.SendClaim(request, HttpContext.RequestAborted);
+    }
+
+    [HttpGet]
+    [Route("claims")]
+    public async Task<ActionResult<VacancyClaimDto[]>> GetClaimsForUser([FromQuery] Guid userId)
+    {
+        var result = await vacancyService.GetClaimsByUserId(userId, HttpContext.RequestAborted);
+        return Ok(result.Map<VacancyClaimDto[]>());
     }
 }
