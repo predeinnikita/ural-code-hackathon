@@ -26,11 +26,10 @@ export const LoginForm: FC<Props> = ({ onClickSignUp, onClickSignIn }) => {
   });
 
   const handleSubmit = useCallback(() => {
-    console.log(isValid, values);
     if (isValid) {
       onClickSignIn(values);
     }
-  }, []);
+  }, [values]);
 
   return (
     <div className={styles.main}>

@@ -12,7 +12,11 @@
   .fields {
     display: flex;
     flex-direction: column;
-    gap: 4px;
+    gap: 8px;
+
+    .item {
+      width: 100%;
+    }
   }
 
   .date {
