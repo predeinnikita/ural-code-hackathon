@@ -28,9 +28,9 @@ export const VacancyListFilter: FC<any> = () => {
   const [specialities, setSpecialities] = useState<
     CustomAutocompleteSelectItem[]
   >([
-    { title: "Дебил 1", value: "1" },
-    { title: "Дебил 2", value: "2" },
-    { title: "Дебил 3", value: "3" },
+    { title: "Frontend", value: "1" },
+    { title: "Backend", value: "2" },
+    { title: "Design", value: "3" },
   ]);
 
   return (
