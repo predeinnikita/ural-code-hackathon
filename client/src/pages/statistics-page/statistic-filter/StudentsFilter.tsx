@@ -1,7 +1,5 @@
 import { FC, useState } from "react";
-import { CustomAutocompleteSelectItem, CustomAutocompleteSelect } from "../../vacancy-list-page/components/custom-autocomplete-select";
-
-
+import { CustomAutocompleteSelect, CustomAutocompleteSelectItem } from "../../../components/custom-autocomplete-select";
 
 export const StudentsFilter: FC = () => {
 
