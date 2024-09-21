@@ -10,10 +10,5 @@ public class BusinessOrganizationConfig : IEntityTypeConfiguration<BusinessOrgan
     {
         entity
             .HasKey(e => e.Id);
-
-        entity
-            .HasMany(e => e.Vacancies)
-            .WithOne(e => e.BusinessOrganization)
-            .HasForeignKey(e => e.BusinessOrganizationId);
     }
 }

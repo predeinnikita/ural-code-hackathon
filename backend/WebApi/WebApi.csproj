@@ -7,18 +7,27 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="LightInject" Version="6.6.4"/>
-        <PackageReference Include="LightInject.Microsoft.Hosting" Version="1.6.1"/>
-        <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3"/>
+        <PackageReference Include="LightInject" Version="6.6.4" />
+        <PackageReference Include="LightInject.Microsoft.Hosting" Version="1.6.1" />
+        <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
+        <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.33">
+            <PrivateAssets>all</PrivateAssets>
+            <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        </PackageReference>
+        <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="6.0.33" />
+        <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.33">
+            <PrivateAssets>all</PrivateAssets>
+            <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        </PackageReference>
     </ItemGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\DAL\DAL.csproj"/>
-        <ProjectReference Include="..\Infra\ModelMapping\Aoaoao.Infra.ModelMapping\Aoaoao.Infra.ModelMapping.csproj"/>
-        <ProjectReference Include="..\Domain\Domain.csproj"/>
-        <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3"/>
-        <ProjectReference Include="..\Infra\ModelMapping\Aoaoao.Infra.ModelMapping\Aoaoao.Infra.ModelMapping.csproj"/>
-        <ProjectReference Include="..\Domain\Domain.csproj"/>
+        <ProjectReference Include="..\DAL\DAL.csproj" />
+        <ProjectReference Include="..\Infra\ModelMapping\Aoaoao.Infra.ModelMapping\Aoaoao.Infra.ModelMapping.csproj" />
+        <ProjectReference Include="..\Domain\Domain.csproj" />
+        <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
+        <ProjectReference Include="..\Infra\ModelMapping\Aoaoao.Infra.ModelMapping\Aoaoao.Infra.ModelMapping.csproj" />
+        <ProjectReference Include="..\Domain\Domain.csproj" />
     </ItemGroup>
 
     <ItemGroup>

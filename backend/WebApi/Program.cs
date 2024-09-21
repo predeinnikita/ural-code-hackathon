@@ -1,14 +1,23 @@
 using DAL;
 using DAL.Repositories;
-
 using System.Reflection;
 using Aoaoao.Infra.ModelMapping;
+using Domain.Models.BusinessOrganization;
 using Domain.Services;
 using LightInject;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Host.UseLightInject(services => services.RegisterAssembly(Assembly.GetExecutingAssembly(), () => new PerRequestLifeTime(), (service, _) => service.IsInterface));
+builder.Host.UseLightInject(services =>
+{
+    services.RegisterAssembly(Assembly.GetExecutingAssembly(), () => new PerRequestLifeTime(),
+            (service, _) => service.IsInterface);
+    services.RegisterAssembly(typeof(BusinessOrganizationModel).Assembly, () => new PerRequestLifeTime(),
+        (service, _) => service.IsInterface);
+    services.RegisterAssembly(typeof(AoaoaoDbContext).Assembly, () => new PerRequestLifeTime(),
+        (service, _) => service.IsInterface);
+});
 
 // Add services to the container.
 Mapper.ScanAndEnsureConfigurations(Assembly.GetExecutingAssembly());
@@ -16,8 +25,9 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-builder.Services.AddSingleton<IAoaoaoDbContext>(provider =>
-    new AoaoaoDbContext(provider.GetService<IConfiguration>().GetConnectionString("Aoaoao")));
+builder.Services.AddDbContext<AoaoaoDbContext>(options =>
+        options.UseNpgsql(builder.Configuration.GetConnectionString("Aoaoao")!),
+    contextLifetime: ServiceLifetime.Transient);
 builder.Services.AddSingleton<IUserRepository, UserRepository>();
 builder.Services.AddSingleton<IVacancyRepository, VacancyRepository>();
 builder.Services.AddSingleton<IVacancyService, VacancyService>();
@@ -25,16 +35,18 @@ builder.Services.AddSingleton<IVacancyService, VacancyService>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}
 
-app.UseHttpsRedirection();
+app.UseSwagger();
+app.UseSwaggerUI();
+
 
 app.UseAuthorization();
 
 app.MapControllers();
+
+using (var context = app.Services.GetService<AoaoaoDbContext>()!)
+{
+    context.Database.Migrate();
+}
 
 app.Run();

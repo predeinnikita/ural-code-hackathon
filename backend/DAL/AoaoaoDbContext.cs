@@ -3,12 +3,12 @@ using Microsoft.EntityFrameworkCore;
 
 namespace DAL;
 
-public sealed class AoaoaoDbContext : DbContext, IAoaoaoDbContext
+public sealed class AoaoaoDbContext : DbContext
 {
-    public AoaoaoDbContext(string connectionString) : base(
-        new DbContextOptionsBuilder<AoaoaoDbContext>()
-            .UseNpgsql(connectionString).Options)
+    public AoaoaoDbContext(DbContextOptions<AoaoaoDbContext> options) : base(options)
     {
+        AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
+        AppContext.SetSwitch("Npgsql.DisableDateTimeInfinityConversions", true);
     }
 
     public DbSet<User> Users { get; set; }

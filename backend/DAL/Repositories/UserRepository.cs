@@ -10,9 +10,9 @@ public interface IUserRepository
 
 public class UserRepository : IUserRepository
 {
-    private readonly IAoaoaoDbContext context;
+    private readonly AoaoaoDbContext context;
 
-    public UserRepository(IAoaoaoDbContext context)
+    public UserRepository(AoaoaoDbContext context)
     {
         this.context = context;
     }
