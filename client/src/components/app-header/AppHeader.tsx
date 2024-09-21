@@ -1,13 +1,26 @@
-import { FC } from "react";
+import { FC, useState } from "react";
 
-import styles from "./AppHeader.module.scss";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import { useNavigate } from "react-router-dom";
 import { ROUTES } from "../routing/routes";
-import { Button } from "@mui/material";
+import { Button, Menu, MenuItem } from "@mui/material";
+import styles from "./AppHeader.module.scss";
 
 export const AppHeader: FC<any> = () => {
   const navigate = useNavigate();
+
+  const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
+  const open = Boolean(anchorEl);
+  const handleClickProfile = () => {
+    navigate(ROUTES.PROFILE);
+
+    setAnchorEl(null);
+  };
+  const exitClickProfile = () => {
+    navigate(ROUTES.MAIN_PAGE);
+
+    setAnchorEl(null);
+  };
 
   return (
     <div className={styles.wrapper}>
@@ -42,11 +55,23 @@ export const AppHeader: FC<any> = () => {
           <Button
             size="small"
             variant="outlined"
+            sx={{ mr: "16px" }}
             onClick={() => navigate(ROUTES.CREATE_VACANCY)}
           >
             Создать вакансию
           </Button>
-          <AccountCircleIcon />
+          <AccountCircleIcon
+            onClick={(event: any) => setAnchorEl(event.currentTarget)}
+          />
+          <Menu
+            id="basic-menu"
+            anchorEl={anchorEl}
+            open={open}
+            onClose={(event: any) => setAnchorEl(event)}
+          >
+            <MenuItem onClick={() => handleClickProfile()}>Профиль</MenuItem>
+            <MenuItem onClick={() => exitClickProfile()}>Выход</MenuItem>
+          </Menu>
         </div>
       </div>
     </div>

@@ -11,12 +11,15 @@ import { CreateVacancy } from "../../pages/create-vacancy/CreateVacancy";
 import { StudentClaimListPage } from "../../pages/student-claim-list-page/StudentClaimListPage";
 import { OrganizationClaimListPage } from "../../pages/organization-claim-list-page/OrganizationClaimListPage";
 import { StudentClaimPage } from "../../pages/student-claim-page/StudentClaimPage";
+import { ProfilePage } from "../../pages/profile-page/ProfilePage";
+import { MainPage } from "../../pages/main-page/MainPage";
 
 export const Routing: FC = () => {
   return (
     <Suspense fallback={<>Загрузка...</>}>
       <AppContainer>
         <Routes>
+          <Route path={ROUTES.MAIN_PAGE} element={<MainPage />} />
           <Route path={ROUTES.AUTHORIZED_PAGE} element={<AuthPage />} />
           <Route path={ROUTES.VACANCY_PAGE} element={<VacancyPage />} />
           <Route
@@ -35,8 +38,9 @@ export const Routing: FC = () => {
             path={ROUTES.STUDENT_CLAIM_PAGE}
             element={<StudentClaimPage />}
           />
-            <Route path={ROUTES.CREATE_VACANCY} element={<CreateVacancy />} />
+          <Route path={ROUTES.CREATE_VACANCY} element={<CreateVacancy />} />
           <Route path={ROUTES.STATISTICS} element={<StatisticsPage />} />
+          <Route path={ROUTES.PROFILE} element={<ProfilePage />} />
 
           <Route path={"*"} element={<NotFoundPage />} />
         </Routes>

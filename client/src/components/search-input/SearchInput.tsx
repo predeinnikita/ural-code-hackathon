@@ -18,7 +18,7 @@ export const SearchInput: FC<any> = () => {
       <InputBase
         size={"small"}
         sx={{ ml: 1, pt: "5px", flex: 1 }}
-        placeholder="Search..."
+        placeholder="Поиск..."
       />
       <IconButton
         size={"small"}
