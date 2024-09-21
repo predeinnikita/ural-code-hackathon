@@ -1,4 +1,4 @@
-import { Card, CardContent, Button } from "@mui/material";
+import { Card, CardContent, Button, Rating } from "@mui/material";
 import { FC } from "react";
 import Typography from "@mui/material/Typography";
 import CardActions from "@mui/material/CardActions";
@@ -12,6 +12,13 @@ export const OrganizationPage: FC = () => {
           <Typography variant="h4" fontWeight="bold">
             Ао "Аоаоао"
           </Typography>
+          <div>
+            <Rating
+              name="simple-controlled"
+              value={3.5}
+            />
+          <Button variant="text">Оставить отзыв</Button>
+          </div>
           <Typography variant="h5" fontWeight="bold">
             Кто мы?
           </Typography>
@@ -46,6 +53,7 @@ export const OrganizationPage: FC = () => {
             своих близких, и стремимся делать лучший в России e-commerce.
             Приходи делать его вместе с нами!
           </Typography>
+
         </CardContent>
       </Card>
     </div>

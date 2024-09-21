@@ -28,7 +28,7 @@ public static class Mapper
     {
         var assemblies = new HashSet<Assembly>();
         FillWithAssembliesWithPrefix(rootAssembly, assemblies);
-        TypeAdapterConfig.GlobalSettings.RequireDestinationMemberSource = true;
+        TypeAdapterConfig.GlobalSettings.RequireDestinationMemberSource = false;
         TypeAdapterConfig.GlobalSettings.Scan(assemblies.ToArray());
         TypeAdapterConfig.GlobalSettings.Compile();
     }
