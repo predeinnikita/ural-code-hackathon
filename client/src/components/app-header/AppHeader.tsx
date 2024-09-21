@@ -17,7 +17,7 @@ export const AppHeader: FC<any> = () => {
     setAnchorEl(null);
   };
   const exitClickProfile = () => {
-    navigate(ROUTES.MAIN_PAGE);
+    navigate(ROUTES.AUTH_PAGE);
 
     setAnchorEl(null);
   };

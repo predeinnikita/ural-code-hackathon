@@ -20,7 +20,7 @@ export const Routing: FC = () => {
       <AppContainer>
         <Routes>
           <Route path={ROUTES.MAIN_PAGE} element={<MainPage />} />
-          <Route path={ROUTES.AUTHORIZED_PAGE} element={<AuthPage />} />
+          <Route path={ROUTES.AUTH_PAGE} element={<AuthPage />} />
           <Route path={ROUTES.VACANCY_PAGE} element={<VacancyPage />} />
           <Route
             path={ROUTES.VACANCY_LIST_PAGE}
