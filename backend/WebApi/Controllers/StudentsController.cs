@@ -1,10 +1,9 @@
 using Microsoft.AspNetCore.Mvc;
-using WebApi.Models;
 
 namespace WebApi.Controllers;
 
 [ApiController]
-[Route("[controller]")]
+[Route("api/students")]
 public class StudentsController : ControllerBase
 {
     private readonly ILogger<StudentsController> logger;
