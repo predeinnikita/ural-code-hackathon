@@ -13,7 +13,7 @@ public class BusinessOrganizationConfig : IEntityTypeConfiguration<BusinessOrgan
 
         entity
             .HasMany(e => e.Vacancies)
-            .WithOne()
+            .WithOne(e => e.BusinessOrganization)
             .HasForeignKey(e => e.BusinessOrganizationId);
     }
 }

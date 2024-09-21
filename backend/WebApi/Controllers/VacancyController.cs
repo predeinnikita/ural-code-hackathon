@@ -1,4 +1,5 @@
 ﻿using Domain.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using WebApi.Dto.BusinessOrganization;
 using WebApi.Dto.Vacancy;
@@ -16,6 +17,8 @@ public class VacancyController : ControllerBase
         this.vacancyService = vacancyService;
     }
 
+    [HttpGet]
+    [Route("")]
     public async Task<ActionResult<VacancyDto[]>> GetAllVacancies()
     {
         var result = await vacancyService.FindAllVacancies(HttpContext.RequestAborted);
