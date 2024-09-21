@@ -10,14 +10,23 @@ export const SearchInput: FC<any> = () => {
     <Paper
       component="form"
       sx={{
-        p: "2px 4px",
+        // p: "2px 4px",
         display: "flex",
         alignItems: "center",
       }}
     >
-      <InputBase sx={{ ml: 1, flex: 1 }} placeholder="Search..." />
-      <IconButton type="button" sx={{ p: "10px" }} aria-label="search">
-        <SearchIcon />
+      <InputBase
+        size={"small"}
+        sx={{ ml: 1, pt: "5px", flex: 1 }}
+        placeholder="Search..."
+      />
+      <IconButton
+        size={"small"}
+        type="button"
+        sx={{ p: "10px" }}
+        aria-label="search"
+      >
+        <SearchIcon fontSize={"small"} />
       </IconButton>
     </Paper>
   );

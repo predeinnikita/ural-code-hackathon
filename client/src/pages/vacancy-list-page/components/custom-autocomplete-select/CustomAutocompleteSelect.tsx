@@ -11,7 +11,7 @@ const Root = styled("div")(
   color: ${
     theme.palette.mode === "dark" ? "rgba(255,255,255,0.65)" : "rgba(0,0,0,.85)"
   };
-  font-size: 16px;
+  font-size: 14px;
 `
 );
 
@@ -104,7 +104,7 @@ const StyledTag = styled(Tag)<TagProps>(
   }
 
   & svg {
-    font-size: 16px;
+    font-size: 14px;
     cursor: pointer;
     padding: 4px;
   }

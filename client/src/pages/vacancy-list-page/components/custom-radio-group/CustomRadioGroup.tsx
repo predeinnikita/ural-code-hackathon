@@ -13,10 +13,17 @@ export const CustomRadioGroup: FC<CustomRadioGroupProps> = ({
 }) => {
   return (
     <FormControl>
-      <FormLabel>{label}</FormLabel>
+      <FormLabel sx={{ fontSize: "14px" }}>{label}</FormLabel>
       <RadioGroup>
         {items.map((item: CustomRadioGroupItem, index: number) => {
-            return <FormControlLabel key={index} label={item.title} value={item.value} control={<Radio />} />
+          return (
+            <FormControlLabel
+              key={index}
+              label={item.title}
+              value={item.value}
+              control={<Radio size="small" />}
+            />
+          );
         })}
       </RadioGroup>
     </FormControl>

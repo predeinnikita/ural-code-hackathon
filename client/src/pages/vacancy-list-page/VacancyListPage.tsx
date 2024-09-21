@@ -9,7 +9,7 @@ import {VacancyList} from "./components/vacancy-list";
 export const VacancyListPage: FC = () => {
   return (
     <Grid container size={12}>
-      <Grid size={4}>
+      <Grid size={4} sx={{ pr: "16px" }}>
         <VacancyListFilter />
       </Grid>
       <Grid container size={8} spacing={2}>
