@@ -4,6 +4,10 @@ export enum ROUTES {
   MAIN_PAGE = "/main",
   VACANCY_LIST_PAGE = "/vacancy-list",
   VACANCY_PAGE = "/vacancy",
+  STUDENT_CLAIM_LIST_PAGE = "/student-claim-list",
+  ORGANIZATION_CLAIM_LIST_PAGE = "/organization-claim-list",
+  STUDENT_CLAIM_PAGE = "/student-claim",
   CLAIMS_PAGE = "/claims",
   STATISTICS = "/statistics",
+  CREATE_VACANCY = "/create-vacancy",
 }
