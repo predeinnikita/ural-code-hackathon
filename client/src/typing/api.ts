@@ -1,6 +1,6 @@
 export enum ConnectorType {
-  TEST = "TEST",
   AUTH = "AUTH",
+  VACANCY = "VACANCY",
 }
 
 export enum ApiType {
