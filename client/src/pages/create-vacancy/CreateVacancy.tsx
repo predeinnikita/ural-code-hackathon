@@ -1,22 +1,12 @@
 import { FC } from "react";
 import styles from "./CreateVacancy.module.scss";
 import { useFormik } from "formik";
-import {
-  Autocomplete,
-  Button,
-  Checkbox,
-  FormControlLabel,
-  Input,
-  TextField,
-} from "@mui/material";
+import { Autocomplete, Button, TextField } from "@mui/material";
 import { DatePicker, LocalizationProvider } from "@mui/x-date-pickers";
 import { CreateVacancyPayload } from "../../typing/vacancy";
 import { useAppDispatch } from "../../redux/store";
 import { createVacancyAsync } from "../../redux/slices/vacancy.slice";
-import dayjs, { Dayjs } from "dayjs";
-import { VacancyListFilter } from "../vacancy-list-page/components/vacancy-list-filter";
-import { useLocation, useSearchParams } from "react-router-dom";
-import { CheckBox } from "@mui/icons-material";
+import dayjs from "dayjs";
 
 const options = [
   {
