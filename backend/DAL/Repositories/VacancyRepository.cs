@@ -7,6 +7,7 @@ namespace DAL.Repositories;
 public interface IVacancyRepository
 {
     Task<IReadOnlyCollection<Vacancy>> FindAll(VacancyFilter filter, CancellationToken cancellationToken = default);
+    Task Add(Vacancy vacancy, CancellationToken cancellationToken);
 }
 
 public sealed class VacancyRepository : IVacancyRepository
@@ -27,6 +28,12 @@ public sealed class VacancyRepository : IVacancyRepository
             .AsQueryable();
         queryable = ApplyFilter(queryable, filter);
         return await queryable.ToArrayAsync(cancellationToken);
+    }
+
+    public async Task Add(Vacancy vacancy, CancellationToken cancellationToken)
+    {
+        await context.Vacancies.AddAsync(vacancy, cancellationToken);
+        await context.SaveChangesAsync(cancellationToken);
     }
 
     private static IQueryable<Vacancy> ApplyFilter(IQueryable<Vacancy> queryable, VacancyFilter filter)
