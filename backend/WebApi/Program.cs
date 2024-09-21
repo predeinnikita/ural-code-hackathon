@@ -1,6 +1,5 @@
 using DAL;
 using DAL.Repositories;
-
 using System.Reflection;
 using Aoaoao.Infra.ModelMapping;
 using Domain.Services;
@@ -8,7 +7,8 @@ using LightInject;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Host.UseLightInject(services => services.RegisterAssembly(Assembly.GetExecutingAssembly(), () => new PerRequestLifeTime(), (service, _) => service.IsInterface));
+builder.Host.UseLightInject(services => services.RegisterAssembly(Assembly.GetExecutingAssembly(),
+    () => new PerRequestLifeTime(), (service, _) => service.IsInterface));
 
 // Add services to the container.
 Mapper.ScanAndEnsureConfigurations(Assembly.GetExecutingAssembly());
@@ -25,11 +25,10 @@ builder.Services.AddSingleton<IVacancyService, VacancyService>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}
+
+app.UseSwagger();
+app.UseSwaggerUI();
+
 
 app.UseAuthorization();
 
