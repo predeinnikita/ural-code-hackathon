@@ -1,13 +1,13 @@
-namespace WebApi.Helpers;
+namespace WebApi.Services;
 
-public interface IRegistrationHelper
+public interface IRegistrationService
 {
     void RegisterStudent(StudentRegistrationInfoDto info);
     void RegisterBusinessOrganization(BusinessOrganizationRegistrationInfoDto info);
     void RegisterEducationalOrganization(EducationalOrganizationRegistrationInfoDto info);
 }
 
-public class RegistrationHelper : IRegistrationHelper // todo сделать валидации
+public class RegistrationService : IRegistrationService // todo сделать валидации
 {
     public void RegisterStudent(StudentRegistrationInfoDto info)
     {

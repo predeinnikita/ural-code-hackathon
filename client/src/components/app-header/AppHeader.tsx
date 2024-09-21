@@ -10,7 +10,7 @@ export const AppHeader: FC<any> = () => {
   const navigate = useNavigate();
 
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
-  const open = Boolean(anchorEl);
+
   const handleClickProfile = () => {
     navigate(ROUTES.PROFILE);
 
@@ -66,7 +66,7 @@ export const AppHeader: FC<any> = () => {
           <Menu
             id="basic-menu"
             anchorEl={anchorEl}
-            open={open}
+            open={!!anchorEl}
             onClose={(event: any) => setAnchorEl(event)}
           >
             <MenuItem onClick={() => handleClickProfile()}>Профиль</MenuItem>

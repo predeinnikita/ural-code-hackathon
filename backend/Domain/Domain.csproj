@@ -11,4 +11,8 @@
         <ProjectReference Include="..\Infra\ModelMapping\Aoaoao.Infra.ModelMapping\Aoaoao.Infra.ModelMapping.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Compile Remove="Class1.cs" />
+    </ItemGroup>
+
 </Project>

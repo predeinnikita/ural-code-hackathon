@@ -2,10 +2,12 @@ using DAL;
 using DAL.Repositories;
 using System.Reflection;
 using Aoaoao.Infra.ModelMapping;
-using Domain.Models.BusinessOrganization;
+using Domain.Helpers;
 using Domain.Services;
 using LightInject;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authorization;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -13,7 +15,7 @@ builder.Host.UseLightInject(services =>
 {
     services.RegisterAssembly(Assembly.GetExecutingAssembly(), () => new PerRequestLifeTime(),
             (service, _) => service.IsInterface);
-    services.RegisterAssembly(typeof(BusinessOrganizationModel).Assembly, () => new PerRequestLifeTime(),
+    services.RegisterAssembly(typeof(PasswordHashCalculator).Assembly, () => new PerRequestLifeTime(),
         (service, _) => service.IsInterface);
     services.RegisterAssembly(typeof(AoaoaoDbContext).Assembly, () => new PerRequestLifeTime(),
         (service, _) => service.IsInterface);
@@ -22,7 +24,14 @@ builder.Host.UseLightInject(services =>
 // Add services to the container.
 Mapper.ScanAndEnsureConfigurations(Assembly.GetExecutingAssembly());
 builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+    .AddCookie(options =>
+    {
+        options.Cookie.SameSite = SameSiteMode.Strict;
+        options.Cookie.SecurePolicy = CookieSecurePolicy.None;
+        options.LoginPath = "/api/auth/login";
+    });
+builder.Services.AddAuthorization(options => { options.FallbackPolicy = new AuthorizationPolicyBuilder().RequireAuthenticatedUser().Build(); });
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<AoaoaoDbContext>(options =>

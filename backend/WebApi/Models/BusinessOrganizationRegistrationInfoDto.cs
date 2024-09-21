@@ -1,6 +1,6 @@
 namespace WebApi.Models;
 
-public class BusinessOrganizationRegistrationInfoDto : RegistrationInfoDto
+public class BusinessOrganizationRegistrationInfoDto : AuthInfoDto
 {
     public string FullName { get; set; }
     public string Description { get; set; }

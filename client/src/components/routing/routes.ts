@@ -15,7 +15,7 @@ export enum ROUTES {
 
 export const ROUTE_TITLES = {
   [ROUTES.AUTH_PAGE]: "Авторизация",
-  [ROUTES.AUTHORIZED_PAGE]: "",
+  [ROUTES.AUTHORIZED_PAGE]: "Главная",
   [ROUTES.MAIN_PAGE]: "Главная",
   [ROUTES.VACANCY_LIST_PAGE]: "Список вакансий",
   [ROUTES.VACANCY_PAGE]: "Вакансия",
