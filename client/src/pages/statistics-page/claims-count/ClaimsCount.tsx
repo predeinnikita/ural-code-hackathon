@@ -11,7 +11,11 @@ export const ClaimsCount: FC = () => {
     datasets: [
       {
         data: specialitiesStats,
-        backgroundColor: "#D2E6F5",
+        // backgroundColor: [
+        //   'rgb(255, 99, 132)',
+        //   'rgb(54, 162, 235)',
+        //   'rgb(255, 205, 86)'
+        // ],  
       },
     ],
   };
@@ -22,27 +26,27 @@ export const ClaimsCount: FC = () => {
           options={{
             responsive: true,
             plugins: {
-              legend: {
-                display: false,
-              },
-              tooltip: {
-                backgroundColor: "#AAAAAA",
-                titleColor: "#FFFFFF",
-                yAlign: "bottom" as const,
-                titleAlign: "center",
-                padding: { x: 20, y: 10 },
-                callbacks: {
-                  title: (data) => {
-                    return (data[0].raw as number).toFixed(0);
-                  },
-                  label: () => "",
-                },
-              },
+              // legend: {
+              //   display: true,
+              // },
+              // tooltip: {
+              //   backgroundColor: "#AAAAAA",
+              //   titleColor: "#FFFFFF",
+              //   yAlign: "bottom" as const,
+              //   titleAlign: "center",
+              //   padding: { x: 20, y: 10 },
+              //   callbacks: {
+              //     title: (data) => {
+              //       return 'aaaa';
+              //     },
+              //     label: () => "aaaa",
+              //   },
+              // },
             },
             scales: {
               x: {
                 grid: {
-                  display: false,
+                  display: true,
                 },
                 ticks: {
                   color: "#AAAAAA",
@@ -55,7 +59,7 @@ export const ClaimsCount: FC = () => {
               },
               y: {
                 grid: {
-                  display: false,
+                  display: true,
                 },
                 ticks: {
                   color: "#000000",

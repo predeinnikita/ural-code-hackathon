@@ -1,14 +1,10 @@
 export const specialities = [
-    'frontend',
-    'backend',
-    'Финансы',  
-    'Дизайн',
+    'Отказ',
+    'Приглашение',
 ];
 
 export const specialitiesStats = [
+    90,
     12,
-    11,
-    23,
-    9
 ];
 
