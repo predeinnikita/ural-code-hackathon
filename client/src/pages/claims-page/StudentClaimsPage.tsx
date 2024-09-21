@@ -1,9 +1,9 @@
 import { Button, IconButton, InputBase, Paper, Chip } from "@mui/material";
 import { FC } from "react";
-import styles from './ClaimsPage.module.scss';
-import SearchIcon from "@mui/icons-material/Search";
+import styles from './StudentClaimsPage.module.scss';
+import SearchIcon from "@mui/icons-material/Search"; 
 
-export const ClaimsPage: FC = () => {
+export const StudentClaimsPage: FC = () => {
     return <div>
     <div className={styles.filter}>
       <Paper
