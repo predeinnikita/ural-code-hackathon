@@ -2,5 +2,8 @@
 
 public enum WorkScheduleDto
 {
-    
+    After4HoursInDay,
+    InEvenings,
+    PartTime,
+    OnWeekends
 }
