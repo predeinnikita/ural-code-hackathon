@@ -1,0 +1,11 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+
+  .fields {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+}
