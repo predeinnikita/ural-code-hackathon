@@ -27,6 +27,9 @@ export const AppHeader: FC<any> = () => {
     <div className={styles.wrapper}>
       <div className={styles.inner}>
         <div className={styles.navigation}>
+          <div className={styles.navigationLogo}>
+            <img src={"vodobobr2.png"} loading="lazy" width={28} height={28} />
+          </div>
           <div
             className={styles.navigationItem}
             onClick={() => navigate(ROUTES.STUDENT_CLAIM_LIST_PAGE)}

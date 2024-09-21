@@ -8,6 +8,7 @@ export const OrganizationPage: FC = () => {
     <div>
       <Card sx={{ minWidth: 275 }}>
         <CardContent>
+          <img src={"vodobobr.png"} loading="lazy" width={200} height={200} />
           <Typography variant="h4" fontWeight="bold">
             Ао "Аоаоао"
           </Typography>
