@@ -8,12 +8,12 @@ import {
 export const OrganizationListFilter: FC<any> = () => {
   const [vuz, setVuz] = useState<CustomAutocompleteSelectItem[]>([
     { title: "УрФУ", value: "1" },
-    { title: "Не УрФУ", value: "2" },
-    { title: "Не УрФУ", value: "3" },
+    { title: "УРГАХУ", value: "2" },
+    { title: "УРГУПС", value: "3" },
   ]);
   const [exp, setExp] = useState<CustomAutocompleteSelectItem[]>([
-    { title: "От 1 года", value: "1" },
-    { title: "От 2 лет", value: "2" },
+    { title: "До 1 года", value: "1" },
+    { title: "От 1 до 3 лет", value: "2" },
     { title: "От 3 лет", value: "3" },
   ]);
   const [specialities, setSpecialities] = useState<
