@@ -7,6 +7,7 @@ import { NotFoundPage } from "../../pages/not-found-page/NotFoundPage";
 import { VacancyPage } from "../../pages/vacancy-page/VacancyPage";
 import { VacancyListPage } from "../../pages/vacancy-list-page/VacancyListPage";
 import { StudentClaimsPage } from "../../pages/claims-page/StudentClaimsPage";
+import { StatisticsPage } from "../../pages/statistics-page/StatisticsPage";
 import { CreateVacancy } from "../../pages/create-vacancy/CreateVacancy";
 
 export const Routing: FC = () => {
@@ -23,6 +24,7 @@ export const Routing: FC = () => {
           <Route path={ROUTES.VACANCY_PAGE} element={<VacancyPage />} />
           <Route path={ROUTES.CREATE_VACANCY} element={<CreateVacancy />} />
           <Route path={ROUTES.CLAIMS_PAGE} element={<StudentClaimsPage />} />
+          <Route path={ROUTES.STATISTICS} element={<StatisticsPage />} />
           <Route path={"*"} element={<NotFoundPage />} />
         </Routes>
       </AppContainer>

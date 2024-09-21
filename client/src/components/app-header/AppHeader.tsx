@@ -25,6 +25,12 @@ export const AppHeader: FC<any> = () => {
           >
             Вакансии
           </div>
+          <div
+            className={styles.navigationItem}
+            onClick={() => navigate(ROUTES.STATISTICS)}
+          >
+            Статистика
+          </div>
         </div>
         <div className={styles.rightPart}>
           <Button
