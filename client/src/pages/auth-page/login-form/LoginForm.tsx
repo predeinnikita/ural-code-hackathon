@@ -1,26 +1,36 @@
-import { FC } from "react";
-import styles from "./LoginForm.module.scss";
+import { FC, useCallback } from "react";
 import { Button, Input } from "@mui/material";
 import { useFormik } from "formik";
-
-interface LoginForm {
-  login: string;
-  password: string;
-}
+import { LoginForm as LoginFormPayload } from "../../../typing/auth";
+import styles from "./LoginForm.module.scss";
 
 interface Props {
-  onClickSignIn: () => void;
+  onClickSignIn: (payload: LoginFormPayload) => void;
   onClickSignUp: () => void;
 }
 
 export const LoginForm: FC<Props> = ({ onClickSignUp, onClickSignIn }) => {
-  const { values, handleChange } = useFormik<LoginForm>({
+  const { values, handleChange, isValid } = useFormik<LoginFormPayload>({
     initialValues: {
       login: "",
       password: "",
     },
+    validate: (values) => {
+      return Object.entries(values).reduce(
+        (prev, [key, value]) =>
+          !!value ? { ...prev } : { ...prev, [key]: true },
+        {}
+      );
+    },
     onSubmit: () => {},
   });
+
+  const handleSubmit = useCallback(() => {
+    console.log(isValid, values);
+    if (isValid) {
+      onClickSignIn(values);
+    }
+  }, []);
 
   return (
     <div className={styles.main}>
@@ -41,7 +51,7 @@ export const LoginForm: FC<Props> = ({ onClickSignUp, onClickSignIn }) => {
         />
       </div>
       <div className={styles.buttons}>
-        <Button variant="contained" onClick={onClickSignIn}>
+        <Button variant="contained" onClick={handleSubmit}>
           Войти
         </Button>
         <div>или</div>

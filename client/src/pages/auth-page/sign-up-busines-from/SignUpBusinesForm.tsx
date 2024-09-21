@@ -1,20 +1,11 @@
-import { FC } from "react";
+import { FC, useCallback } from "react";
 import styles from "./SignUpBusinesForm.module.scss";
 import { useFormik } from "formik";
 import { Button, Input } from "@mui/material";
+import { BusinesForm } from "../../../typing/auth";
 
 interface Props {
-  onClickSignUp: () => void;
-}
-
-interface BusinesForm {
-  fullName: string;
-  description: string;
-  inn: string;
-  ogrn: string;
-  address: string;
-  email: string;
-  phoneNumber: string;
+  onClickSignUp: (payload: BusinesForm) => void;
 }
 
 const INITIAL_STATE: BusinesForm = {
@@ -25,12 +16,25 @@ const INITIAL_STATE: BusinesForm = {
   inn: "",
   ogrn: "",
   phoneNumber: "",
+  login: "",
+  password: "",
 };
 
-export const SignUpBusinesForm: FC<Props> = () => {
-  const { values, handleChange } = useFormik<BusinesForm>({
+export const SignUpBusinesForm: FC<Props> = ({ onClickSignUp }) => {
+  const { values, handleChange, isValid, submitForm } = useFormik<BusinesForm>({
     initialValues: INITIAL_STATE,
-    onSubmit: () => {},
+    validate: (values) => {
+      return Object.entries(values).reduce(
+        (prev, [key, value]) =>
+          !!value ? { ...prev } : { ...prev, [key]: true },
+        {}
+      );
+    },
+    onSubmit: (values) => {
+      if (isValid) {
+        onClickSignUp(values);
+      }
+    },
   });
 
   return (
@@ -46,7 +50,7 @@ export const SignUpBusinesForm: FC<Props> = () => {
           />
         ))}
       </div>
-      <Button>Зарегистрироваться</Button>
+      <Button onClick={submitForm}>Зарегистрироваться</Button>
     </div>
   );
 };
