@@ -2,14 +2,22 @@ using DAL;
 using DAL.Repositories;
 using System.Reflection;
 using Aoaoao.Infra.ModelMapping;
+using Domain.Models.BusinessOrganization;
 using Domain.Services;
 using LightInject;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Host.UseLightInject(services => services.RegisterAssembly(Assembly.GetExecutingAssembly(),
-    () => new PerRequestLifeTime(), (service, _) => service.IsInterface));
+builder.Host.UseLightInject(services =>
+{
+    services.RegisterAssembly(Assembly.GetExecutingAssembly(), () => new PerRequestLifeTime(),
+            (service, _) => service.IsInterface);
+    services.RegisterAssembly(typeof(BusinessOrganizationModel).Assembly, () => new PerRequestLifeTime(),
+        (service, _) => service.IsInterface);
+    services.RegisterAssembly(typeof(AoaoaoDbContext).Assembly, () => new PerRequestLifeTime(),
+        (service, _) => service.IsInterface);
+});
 
 // Add services to the container.
 Mapper.ScanAndEnsureConfigurations(Assembly.GetExecutingAssembly());
@@ -18,7 +26,8 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<AoaoaoDbContext>(options =>
-    options.UseNpgsql(builder.Configuration.GetConnectionString("Aoaoao")!));
+        options.UseNpgsql(builder.Configuration.GetConnectionString("Aoaoao")!),
+    contextLifetime: ServiceLifetime.Transient);
 builder.Services.AddSingleton<IUserRepository, UserRepository>();
 builder.Services.AddSingleton<IVacancyRepository, VacancyRepository>();
 builder.Services.AddSingleton<IVacancyService, VacancyService>();

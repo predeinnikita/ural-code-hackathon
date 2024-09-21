@@ -44,13 +44,13 @@ export const VacancyListFilter: FC<any> = () => {
         />
       </Grid>
       <Grid size={12}>
-        <CustomRadioGroup label={"Опыт работы"} items={expWork} />
+        <CustomRadioGroup label="Опыт работы" items={expWork} />
       </Grid>
       <Grid size={12}>
-        <CustomCheckboxGroup label={"График работы"} items={work} />
+        <CustomCheckboxGroup label="График работы" items={work} />
       </Grid>
       <Grid size={12}>
-        <SalarySlider label={"Зарплата"} />
+        <SalarySlider label="Зарплата" />
       </Grid>
     </Grid>
   );
