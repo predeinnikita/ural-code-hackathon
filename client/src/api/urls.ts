@@ -7,4 +7,7 @@ export const URLS = {
     REGISTRATION_SIGMA: `${ApiType.API}/register/busines`,
     REGISTRATION_EDUCATION: `${ApiType.API}/register/educational-org`,
   },
+  [ConnectorType.VACANCY]: {
+    CREATE: `${ApiType.API}/vacancies`,
+  },
 };

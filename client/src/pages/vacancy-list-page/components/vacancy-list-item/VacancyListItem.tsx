@@ -29,13 +29,11 @@ export const VacancyListItem: FC<VacancyListItemProps> = ({
         <Typography gutterBottom variant="caption" component="div">
           {organization}
         </Typography>
-        <Typography>
-          <Stack direction="row" spacing={1}>
-            {tags.map((x: string) => {
-              return <Chip label={x} size="small" />;
-            })}
-          </Stack>
-        </Typography>
+        <Stack direction="row" spacing={1}>
+          {tags.map((x: string, i: number) => {
+            return <Chip key={i} label={x} size="small" />;
+          })}
+        </Stack>
       </CardContent>
       <CardActions>
         <Button
