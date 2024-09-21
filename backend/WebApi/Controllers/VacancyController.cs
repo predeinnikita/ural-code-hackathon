@@ -1,5 +1,6 @@
 ﻿using Aoaoao.Infra.ModelMapping;
 using Domain.Models.Vacancy;
+using Domain.Models.VacancyClaim;
 using Domain.Services;
 using Microsoft.AspNetCore.Mvc;
 using WebApi.Dto.Vacancy;
@@ -33,5 +34,17 @@ public class VacancyController : ControllerBase
         var newVacancy =
             await vacancyService.CreateVacancy(body.Map<CreateVacancyRequest>(), HttpContext.RequestAborted);
         return Created($"/api/vacancies/{newVacancy.Id}", newVacancy.Map<VacancyDto>());
+    }
+
+    [HttpPost]
+    [Route("{vacancyId:guid}/SendClaim")]
+    public async Task SendClaim([FromRoute] Guid vacancyId)
+    {
+        var request = new SendVacancyClaimRequest
+        {
+            UserId = Guid.NewGuid(), // TODO
+            VacancyId = vacancyId
+        };
+        await vacancyService.SendClaim(request, HttpContext.RequestAborted);
     }
 }

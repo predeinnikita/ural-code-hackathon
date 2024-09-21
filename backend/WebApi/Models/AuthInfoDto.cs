@@ -1,6 +1,6 @@
 namespace WebApi.Models;
 
-public class RegistrationInfoDto
+public class AuthInfoDto
 {
     public string Login { get; set; }
     public string Password { get; set; }
