@@ -7,27 +7,24 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="LightInject" Version="6.6.4" />
-        <PackageReference Include="LightInject.Microsoft.Hosting" Version="1.6.1" />
-        <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
+        <PackageReference Include="LightInject" Version="6.6.4"/>
+        <PackageReference Include="LightInject.Microsoft.Hosting" Version="1.6.1"/>
+        <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3"/>
     </ItemGroup>
 
     <ItemGroup>
-      <Content Update="appsettings.Development.json">
-        <DependentUpon>appsettings.json</DependentUpon>
-      </Content>
+        <ProjectReference Include="..\DAL\DAL.csproj"/>
+        <ProjectReference Include="..\Infra\ModelMapping\Aoaoao.Infra.ModelMapping\Aoaoao.Infra.ModelMapping.csproj"/>
+        <ProjectReference Include="..\Domain\Domain.csproj"/>
+        <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3"/>
+        <ProjectReference Include="..\Infra\ModelMapping\Aoaoao.Infra.ModelMapping\Aoaoao.Infra.ModelMapping.csproj"/>
+        <ProjectReference Include="..\Domain\Domain.csproj"/>
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\DAL\DAL.csproj" />
-<<<<<<< HEAD
-      <ProjectReference Include="..\Infra\ModelMapping\Aoaoao.Infra.ModelMapping\Aoaoao.Infra.ModelMapping.csproj" />
-=======
-      <ProjectReference Include="..\Domain\Domain.csproj" />
->>>>>>> vacancies
-        <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
-      <ProjectReference Include="..\Infra\ModelMapping\Aoaoao.Infra.ModelMapping\Aoaoao.Infra.ModelMapping.csproj" />
-      <ProjectReference Include="..\Domain\Domain.csproj" />
+        <Content Update="appsettings.Development.json">
+            <DependentUpon>appsettings.json</DependentUpon>
+        </Content>
     </ItemGroup>
 
 </Project>

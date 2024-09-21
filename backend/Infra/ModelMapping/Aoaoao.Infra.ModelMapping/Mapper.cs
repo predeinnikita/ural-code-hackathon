@@ -5,18 +5,24 @@ namespace Aoaoao.Infra.ModelMapping;
 
 public static class Mapper
 {
-    public static TDestination Map<TDestination>(this object? source) =>
-        source!.Adapt<TDestination>();
+    public static TDestination Map<TDestination>(this object? source)
+    {
+        return source!.Adapt<TDestination>();
+    }
 
-    public static void Map<TSource, TDestination>(this TSource? source, TDestination result) =>
+    public static void Map<TSource, TDestination>(this TSource? source, TDestination result)
+    {
         source!.Adapt<TSource, TDestination>(result);
+    }
 
     public static IQueryable<TDestination> MapQueryable<TDestination>(
-        this IQueryable source) =>
-        source.ProjectToType<TDestination>();
+        this IQueryable source)
+    {
+        return source.ProjectToType<TDestination>();
+    }
 
     /// <summary>
-    /// Сканирование сборок и компиляция конфигураций
+    ///     Сканирование сборок и компиляция конфигураций
     /// </summary>
     public static void ScanAndEnsureConfigurations(Assembly rootAssembly)
     {
