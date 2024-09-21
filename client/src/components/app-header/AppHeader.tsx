@@ -1,13 +1,14 @@
 import { FC, useState } from "react";
 
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { ROUTES } from "../routing/routes";
 import { Button, Menu, MenuItem } from "@mui/material";
 import styles from "./AppHeader.module.scss";
 
 export const AppHeader: FC<any> = () => {
   const navigate = useNavigate();
+  const location = useLocation();
 
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
 
