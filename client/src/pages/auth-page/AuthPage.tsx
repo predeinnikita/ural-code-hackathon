@@ -5,10 +5,14 @@ import { Button, Input } from "@mui/material";
 import { LoginForm } from "./login-form";
 import { Hidder } from "../../components/shared/hidder/Hidder";
 import { SignUpContainer } from "./sign-up-container/SignUpContainer";
+import { SignUpBusinesForm } from "./sign-up-busines-from/SignUpBusinesForm";
+import { SignUpStudentsForm } from "./sign-up-student-form/SignUpStudentForm";
 
 const TITLES: { [key in LoginSteps]?: string } = {
   login: "Войти",
   sign_up: "Зарегистрироваться",
+  sign_up_busines: "Зарегистрироваться",
+  sign_up_student: "Зарегистрироваться",
 };
 
 enum LoginSteps {
@@ -30,6 +34,8 @@ export const AuthPage: FC = () => {
     // TODO login request
   }, []);
 
+  const handleSignUp = useCallback(() => {}, []);
+
   return (
     <div className={styles.main}>
       <div>{TITLES[loginState]}</div>
@@ -40,7 +46,17 @@ export const AuthPage: FC = () => {
         />
       </Hidder>
       <Hidder condition={loginState === LoginSteps.SIGN_UP}>
-        <SignUpContainer />
+        <SignUpContainer
+          onClickEducateion={() => {}}
+          onClickSigma={() => setLoginState(LoginSteps.SIGN_UP_BUSINES)}
+          onClickStudent={() => setLoginState(LoginSteps.SIGN_UP_STUDENT)}
+        />
+      </Hidder>
+      <Hidder condition={loginState === LoginSteps.SIGN_UP_BUSINES}>
+        <SignUpBusinesForm onClickSignUp={handleSignUp} />
+      </Hidder>
+      <Hidder condition={loginState === LoginSteps.SIGN_UP_STUDENT}>
+        <SignUpStudentsForm onClickSignUp={handleSignUp} />
       </Hidder>
     </div>
   );

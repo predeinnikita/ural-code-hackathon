@@ -1,34 +1,36 @@
 import { FC } from "react";
-import styles from "./SignUpBusinesForm.module.scss";
 import { useFormik } from "formik";
 import { Button, Input } from "@mui/material";
+import styles from "./SignUpStudentForm.module.scss";
 
 interface Props {
   onClickSignUp: () => void;
 }
 
-interface BusinesForm {
+interface StudentForm {
   fullName: string;
-  description: string;
-  inn: string;
-  ogrn: string;
-  address: string;
+  studentIdNumber: string;
+  educationalOrganizationFullName: string;
+  speciality: string;
+  grade: string;
+  experienceLevel: string;
   email: string;
   phoneNumber: string;
 }
 
-const INITIAL_STATE: BusinesForm = {
-  address: "",
-  description: "",
+const INITIAL_STATE: StudentForm = {
+  educationalOrganizationFullName: "",
   email: "",
+  experienceLevel: "",
   fullName: "",
-  inn: "",
-  ogrn: "",
+  grade: "",
   phoneNumber: "",
+  speciality: "",
+  studentIdNumber: "",
 };
 
-export const SignUpBusinesForm: FC<Props> = () => {
-  const { values, handleChange } = useFormik<BusinesForm>({
+export const SignUpStudentsForm: FC<Props> = () => {
+  const { values, handleChange } = useFormik<StudentForm>({
     initialValues: INITIAL_STATE,
     onSubmit: () => {},
   });
