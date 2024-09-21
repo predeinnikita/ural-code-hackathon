@@ -1,12 +1,21 @@
 import { FC, useCallback, useState } from "react";
 import styles from "./AuthPage.module.scss";
-import { useFormik } from "formik";
-import { Button, Input } from "@mui/material";
 import { LoginForm } from "./login-form";
 import { Hidder } from "../../components/shared/hidder/Hidder";
 import { SignUpContainer } from "./sign-up-container/SignUpContainer";
 import { SignUpBusinesForm } from "./sign-up-busines-from/SignUpBusinesForm";
 import { SignUpStudentsForm } from "./sign-up-student-form/SignUpStudentForm";
+import {
+  loginAsync,
+  registerSigmaAsync,
+  registerStudentAsync,
+} from "../../redux/slices/auth.slice";
+import { useAppDispatch } from "../../redux/store";
+import {
+  BusinesForm,
+  LoginForm as LoginFormPayload,
+  StudentForm,
+} from "../../typing/auth";
 
 const TITLES: { [key in LoginSteps]?: string } = {
   login: "Войти",
@@ -26,15 +35,23 @@ enum LoginSteps {
 export const AuthPage: FC = () => {
   const [loginState, setLoginState] = useState<LoginSteps>(LoginSteps.LOGIN);
 
+  const dispatch = useAppDispatch();
+
   const onClickSignUpButton = useCallback(() => {
     setLoginState(LoginSteps.SIGN_UP);
   }, []);
 
-  const handleLogin = useCallback(() => {
-    // TODO login request
+  const handleLogin = useCallback((payload: LoginFormPayload) => {
+    dispatch(loginAsync(payload));
   }, []);
 
-  const handleSignUp = useCallback(() => {}, []);
+  const handleSignUpStudent = useCallback((payload: StudentForm) => {
+    dispatch(registerStudentAsync(payload));
+  }, []);
+
+  const handleSignUpBusines = useCallback((payload: BusinesForm) => {
+    dispatch(registerSigmaAsync(payload));
+  }, []);
 
   return (
     <div className={styles.main}>
@@ -53,10 +70,10 @@ export const AuthPage: FC = () => {
         />
       </Hidder>
       <Hidder condition={loginState === LoginSteps.SIGN_UP_BUSINES}>
-        <SignUpBusinesForm onClickSignUp={handleSignUp} />
+        <SignUpBusinesForm onClickSignUp={handleSignUpBusines} />
       </Hidder>
       <Hidder condition={loginState === LoginSteps.SIGN_UP_STUDENT}>
-        <SignUpStudentsForm onClickSignUp={handleSignUp} />
+        <SignUpStudentsForm onClickSignUp={handleSignUpStudent} />
       </Hidder>
     </div>
   );

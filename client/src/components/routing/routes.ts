@@ -12,5 +12,5 @@ export enum ROUTES {
   MY_ACTIVITIES_PAGE = "/activities",
   PROFILE_PAGE = "/profile",
   VACANCY_PAGE = "/vacancy",
-  CLAIMS_PAGE = "/claims"
+  CLAIMS_PAGE = "/claims",
 }
