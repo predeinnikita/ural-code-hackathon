@@ -1,4 +1,5 @@
 using Aoaoao.Infra.ModelMapping;
+using DAL.Entities;
 using DAL.Repositories;
 using Domain.Helpers;
 using Domain.Models.AuthInfo;
@@ -10,6 +11,7 @@ namespace Domain.Services;
 public interface IBusinessOrganizationService
 {
     Task<BusinessOrganizationModel?> FindByLoginAndPassword(AuthInfo authInfo, CancellationToken cancellationToken = default);
+    Task<BusinessOrganizationModel?> Create(BusinessOrganizationModel businessOrganizationModel, CancellationToken cancellationToken = default);
 }
 
 public class BusinessOrganizationService : IBusinessOrganizationService
@@ -25,5 +27,13 @@ public class BusinessOrganizationService : IBusinessOrganizationService
     {
         var businessOrganization = await businessOrganizationRepository.FindByLoginAndPassword(authInfo.Login, PasswordHashCalculator.Calculate(authInfo.Password), cancellationToken);
         return businessOrganization?.Map<BusinessOrganizationModel>();
+    }
+
+    public async Task<BusinessOrganizationModel?> Create(BusinessOrganizationModel businessOrganizationModel, CancellationToken cancellationToken = default)
+    {
+        var businessOrganization = businessOrganizationModel.Map<BusinessOrganization>();
+        businessOrganization.Id = Guid.NewGuid();
+        await businessOrganizationRepository.Create(businessOrganization, cancellationToken);
+        return businessOrganization.Map<BusinessOrganizationModel>();
     }
 }

@@ -24,7 +24,7 @@ export const ProfilePage: FC = () => {
             Период
           </Typography>
           <Typography variant="subtitle1">
-            13 марта 2024 - 15 декабря
+            22 сентября 2024 - 30 сентября 2024
           </Typography>
           <Typography variant="h6" fontWeight="bold">
             График работы

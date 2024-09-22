@@ -10,31 +10,31 @@ export const OrganizationClaimList: FC<any> = () => {
   const [state, setState] = useState<OrganizationClaimListItemProps[]>([
     {
       title: "Никита",
-      tags: ["1 курс", "Без опыт"],
+      tags: ["1 курс", "1 год опыта"],
       vuz: "УрФУ",
       description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt laboriosam magnam quas, possimus recusandae vitae saepe molestias omnis assumenda ducimus exercitationem dolores distinctio natus reprehenderit neque incidunt quam itaque quo?"
     },
     {
       title: "Артем",
-      tags: ["1 курс", "Без опыт"],
+      tags: ["1 курс", "Без опыта"],
       vuz: "УрФУ",
       description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt laboriosam magnam quas, possimus recusandae vitae saepe molestias omnis assumenda ducimus exercitationem dolores distinctio natus reprehenderit neque incidunt quam itaque quo?"
     },
     {
       title: "Кирилл",
-      tags: ["1 курс", "Без опыт"],
+      tags: ["1 курс", "Без опыта"],
       vuz: "УрФУ",
       description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt laboriosam magnam quas, possimus recusandae vitae saepe molestias omnis assumenda ducimus exercitationem dolores distinctio natus reprehenderit neque incidunt quam itaque quo?"
     },
     {
       title: "Cаня",
-      tags: ["1 курс", "Без опыт"],
+      tags: ["1 курс", "Без опыта"],
       vuz: "УрФУ",
       description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt laboriosam magnam quas, possimus recusandae vitae saepe molestias omnis assumenda ducimus exercitationem dolores distinctio natus reprehenderit neque incidunt quam itaque quo?"
     },
     {
       title: "Дима",
-      tags: ["1 курс", "Без опыт"],
+      tags: ["1 курс", "Без опыта"],
       vuz: "УрФУ",
       description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt laboriosam magnam quas, possimus recusandae vitae saepe molestias omnis assumenda ducimus exercitationem dolores distinctio natus reprehenderit neque incidunt quam itaque quo?"
     },

@@ -16,6 +16,8 @@ import {
   LoginForm as LoginFormPayload,
   StudentForm,
 } from "../../typing/auth";
+import { useNavigate } from "react-router-dom";
+import { ROUTES } from "../../components/routing/routes";
 
 const TITLES: { [key in LoginSteps]?: string } = {
   login: "Войти",
@@ -36,13 +38,17 @@ export const AuthPage: FC = () => {
   const [loginState, setLoginState] = useState<LoginSteps>(LoginSteps.LOGIN);
 
   const dispatch = useAppDispatch();
+  const navigate = useNavigate();
 
   const onClickSignUpButton = useCallback(() => {
     setLoginState(LoginSteps.SIGN_UP);
   }, []);
 
   const handleLogin = useCallback((payload: LoginFormPayload) => {
-    dispatch(loginAsync(payload));
+    navigate(ROUTES.VACANCY_LIST_PAGE)
+    // navigate(ROUTES.ORGANIZATION_CLAIM_LIST_PAGE)
+
+    // dispatch(loginAsync(payload));
   }, []);
 
   const handleSignUpStudent = useCallback((payload: StudentForm) => {

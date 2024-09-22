@@ -8,6 +8,7 @@ export const OrganizationPage: FC = () => {
     <div>
       <Card sx={{ minWidth: 275 }}>
         <CardContent>
+          <img src={"vodobobr.png"} loading="lazy" width={200} height={200} />
           <Typography variant="h4" fontWeight="bold">
             Ао "Аоаоао"
           </Typography>
@@ -17,6 +18,7 @@ export const OrganizationPage: FC = () => {
               value={3.5}
             />
           <Button variant="text">Оставить отзыв</Button>
+          <Button variant="text">Посмотреть отзывы</Button>
           </div>
           <Typography variant="h5" fontWeight="bold">
             Кто мы?
