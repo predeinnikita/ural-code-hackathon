@@ -29,5 +29,5 @@ export const ROUTE_TITLES = {
   [ROUTES.CREATE_VACANCY_PAGE]: "Создать вакансию",
   [ROUTES.PROFILE_PAGE]: "Профиль",
   [ROUTES.ORGANIZATION_PAGE]: 'Ао "Аоаоао"',
-  [ROUTES.WORKS_PAGE]: 'Мои стажировки',
+  [ROUTES.WORKS_PAGE]: 'Стажировки',
 };

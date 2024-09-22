@@ -24,6 +24,9 @@ export const AppHeader: FC<any> = () => {
     setAnchorEl(null);
   };
 
+  const [hasWork, setHasWork] = useState(false);
+
+
   return (
     <div className={styles.wrapper}>
       <div className={styles.inner}>
@@ -32,12 +35,15 @@ export const AppHeader: FC<any> = () => {
             <img src={"vodobobr2.png"} loading="lazy" width={28} height={28} />
           </div>
           <Hidder condition={location.pathname != '/auth'}>
-            <div
-              className={styles.navigationItem}
-              onClick={() => navigate(ROUTES.WORKS_PAGE)}
-            >
-              Мои стажировки
-            </div>
+            {/* <Hidder condition={hasWork}> */}
+              <div
+                className={styles.navigationItem}
+                onClick={() => navigate(ROUTES.WORKS_PAGE)}
+              >
+                Стажировки
+              </div>
+            {/* </Hidder> */}
+
             <div
               className={styles.navigationItem}
               onClick={() => navigate(ROUTES.STUDENT_CLAIM_LIST_PAGE)}

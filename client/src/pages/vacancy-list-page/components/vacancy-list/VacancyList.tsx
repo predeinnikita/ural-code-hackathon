@@ -6,9 +6,9 @@ import { Paper } from "@mui/material";
 import Grid from "@mui/material/Grid2";
 
 export const VacancyList: FC<any> = () => {
-  const [state, setState] = useState<VacancyListItemProps[]>([
+  let state = [
     {
-      title: "Frontend",
+      title: "Frontend-разработчик",
       organization: 'Ао "Аоаоао',
       tags: ["1-2 курс", "Без опыта"],
     },
@@ -32,7 +32,7 @@ export const VacancyList: FC<any> = () => {
       organization: "vacancy 5",
       tags: ["1-2 курс", "Без опыта"],
     },
-  ]);
+  ];
 
   return (
     <Stack direction={"column"}>

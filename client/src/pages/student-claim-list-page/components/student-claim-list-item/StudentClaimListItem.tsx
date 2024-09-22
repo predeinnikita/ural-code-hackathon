@@ -34,7 +34,7 @@ export const StudentClaimListItem: FC<StudentClaimListItemProps> = ({
       <CardActions>
         {
           sended ? '' :       <Hidder condition={status === 'Приглашение'}>
-        <Button size="small" variant="contained" color="primary" onClick={() => setSended(true)}>
+        <Button size="small" variant="contained" color="primary" onClick={() => {setSended(true)}}>
           Принять
         </Button>
         <Button size="small" variant="outlined" color="primary" onClick={() => navigate(ROUTES.VACANCY_PAGE)}>

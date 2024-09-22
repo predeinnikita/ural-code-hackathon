@@ -80,14 +80,6 @@ export const WorksPage: FC = () => {
               </div>
             </Stack>
           </CardContent>
-          <CardActions onClick={() => navigate(ROUTES.ORGANIZATION_CLAIM_LIST_PAGE)}>
-            {/* <Button size="small" variant="contained" color="primary">
-              Принять
-            </Button>
-            <Button size="small" variant="outlined" color="primary">
-              Отказать
-            </Button> */}
-          </CardActions>
         </Card>
       </Grid>
     </Stack>

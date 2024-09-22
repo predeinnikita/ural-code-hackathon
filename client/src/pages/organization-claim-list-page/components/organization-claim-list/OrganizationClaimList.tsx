@@ -7,7 +7,7 @@ import {
 } from "../organization-claim-list-item";
 
 export const OrganizationClaimList: FC<any> = () => {
-  const [state, setState] = useState<OrganizationClaimListItemProps[]>([
+  let state = [
     {
       title: "Никита",
       tags: ["1 курс", "1 год опыта"],
@@ -38,7 +38,7 @@ export const OrganizationClaimList: FC<any> = () => {
       vuz: "УрФУ",
       description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt laboriosam magnam quas, possimus recusandae vitae saepe molestias omnis assumenda ducimus exercitationem dolores distinctio natus reprehenderit neque incidunt quam itaque quo?"
     },
-  ]);
+  ];
 
   return (
     <Stack direction={"column"}>

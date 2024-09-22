@@ -17,6 +17,8 @@ export const StudentClaimPage: FC = () => {
   const [tags, setTags] = useState<string[]>(["Frontend", "1 год опыта"]);
   const navigate = useNavigate();
 
+  const [sended, setSended] = useState(false);
+
   return (
     <Stack direction="column">
       <Grid sx={{ display: "flex", justifyContent: "center" }}>
@@ -42,13 +44,17 @@ export const StudentClaimPage: FC = () => {
               </Grid>
             </Stack>
           </CardContent>
-          <CardActions onClick={() => navigate(ROUTES.ORGANIZATION_CLAIM_LIST_PAGE)}>
-            <Button size="small" variant="contained" color="primary">
-              Принять
-            </Button>
-            <Button size="small" variant="outlined" color="primary">
-              Отказать
-            </Button>
+          <CardActions onClick={() => setSended(true)}>
+            { sended ? 'Приглашение отправлено' : <>
+                <Button size="small" variant="contained" color="primary">
+                  Отправить приглашение
+                </Button>
+                <Button size="small" variant="outlined" color="primary">
+                  Отказать
+                </Button>
+                </>
+            }
+
           </CardActions>
         </Card>
       </Grid>
