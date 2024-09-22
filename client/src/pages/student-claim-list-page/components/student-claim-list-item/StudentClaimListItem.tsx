@@ -38,7 +38,7 @@ export const StudentClaimListItem: FC<StudentClaimListItemProps> = ({
           Принять
         </Button>
         <Button size="small" variant="outlined" color="primary" onClick={() => navigate(ROUTES.VACANCY_PAGE)}>
-          Отказаться
+          Отказать
         </Button>
       </Hidder>
         }

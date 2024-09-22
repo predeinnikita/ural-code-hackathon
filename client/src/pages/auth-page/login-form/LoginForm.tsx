@@ -44,6 +44,7 @@ export const LoginForm: FC<Props> = ({ onClickSignUp, onClickSignIn }) => {
         <Input
           placeholder="Password"
           name="password"
+          type="password"
           value={values.password}
           onChange={handleChange}
           fullWidth

@@ -47,7 +47,7 @@ export const StudentClaimPage: FC = () => {
               Принять
             </Button>
             <Button size="small" variant="outlined" color="primary">
-              Отказаться
+              Отказать
             </Button>
           </CardActions>
         </Card>

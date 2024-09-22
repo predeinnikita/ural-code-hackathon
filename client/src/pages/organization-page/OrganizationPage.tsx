@@ -18,6 +18,7 @@ export const OrganizationPage: FC = () => {
               value={3.5}
             />
           <Button variant="text">Оставить отзыв</Button>
+          <Button variant="text">Посмотреть отзывы</Button>
           </div>
           <Typography variant="h5" fontWeight="bold">
             Кто мы?

@@ -7,18 +7,20 @@ import { CreateVacancyPayload } from "../../typing/vacancy";
 import { useAppDispatch } from "../../redux/store";
 import { createVacancyAsync } from "../../redux/slices/vacancy.slice";
 import dayjs from "dayjs";
+import { useNavigate } from "react-router-dom";
+import { ROUTES } from "../../components/routing/routes";
 
 const options = [
   {
-    title: "front",
+    title: "Frontend-developer",
     value: "front",
   },
   {
-    title: "back",
+    title: "Backend-developer",
     value: "back",
   },
   {
-    title: "pevops",
+    title: "Devops",
     value: "pevops",
   },
 ];
@@ -30,6 +32,7 @@ interface Form extends Omit<CreateVacancyPayload, "period"> {
 
 export const CreateVacancy: FC = () => {
   const dispatch = useAppDispatch();
+  const navigate = useNavigate();
 
   const { values, handleChange, isValid, submitForm, setValues } =
     useFormik<Form>({
@@ -48,6 +51,7 @@ export const CreateVacancy: FC = () => {
         }, {});
       },
       onSubmit: (values) => {
+        navigate(ROUTES.VACANCY_LIST_PAGE)
         if (isValid) {
           const { end, start, ...rest } = values;
           dispatch(createVacancyAsync({ ...rest, period: { start, end } }));

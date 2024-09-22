@@ -1,9 +1,9 @@
 import { FC } from "react";
 import Grid from "@mui/material/Grid2";
 import { VacancyListFilter } from "./components/vacancy-list-filter";
-import { VacancyList } from "./components/vacancy-list";
 import { SearchInput } from "../../components/search-input";
 import Typography from "@mui/material/Typography";
+import { VacancyList } from "./components/vacancy-list";
 
 export const VacancyListPage: FC = () => {
   return (

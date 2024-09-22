@@ -16,7 +16,7 @@ export const StudentClaimList: FC<any> = () => {
     },
     {
       title: "Frontend-разработчик",
-      company: "ЗАО Рду",
+      company: 'АО "Аоаоао"',
       status: "Приглашение"
     },
     {

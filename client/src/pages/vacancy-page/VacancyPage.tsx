@@ -16,7 +16,7 @@ export const VacancyPage: FC = () => {
       <Card sx={{ minWidth: 275 }}>
         <CardContent>
           <Typography variant="h5" fontWeight="bold">
-            Frontend-developer
+            Frontend-разработчик
           </Typography>
           <Typography variant="h6" fontWeight="bold">
             Компания
@@ -34,7 +34,7 @@ export const VacancyPage: FC = () => {
             Период
           </Typography>
           <Typography variant="subtitle1">
-            13 марта 2024 - 15 декабря
+            1 сентября 2024 - 30 сентября 2024
           </Typography>
           <Typography variant="h6" fontWeight="bold">
             График работы
