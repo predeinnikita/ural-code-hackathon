@@ -1,5 +1,7 @@
 using Aoaoao.Infra.ModelMapping;
+using DAL.Entities;
 using Domain.Helpers;
+using Domain.Models.BusinessOrganization;
 using Domain.Models.Student;
 using Domain.Services;
 
@@ -15,22 +17,26 @@ public interface IRegistrationService
 public class RegistrationService : IRegistrationService // todo сделать валидации
 {
     private readonly IStudentService studentService;
+    private readonly IBusinessOrganizationService businessOrganizationService;
 
-    public RegistrationService(IStudentService studentService)
+    public RegistrationService(IStudentService studentService, IBusinessOrganizationService businessOrganizationService)
     {
         this.studentService = studentService;
+        this.businessOrganizationService = businessOrganizationService;
     }
 
     public async Task RegisterStudent(StudentRegistrationInfoDto info)
     {
-        var studentModel = info.Map<StudentModel>();
-        studentModel.PasswordHash = PasswordHashCalculator.Calculate(info.Password);
-        await studentService.Create(studentModel);
+        var model = info.Map<StudentModel>();
+        model.PasswordHash = PasswordHashCalculator.Calculate(info.Password);
+        await studentService.Create(model);
     }
 
     public async Task RegisterBusinessOrganization(BusinessOrganizationRegistrationInfoDto info)
     {
-        throw new NotImplementedException();
+        var model = info.Map<BusinessOrganizationModel>();
+        model.PasswordHash = PasswordHashCalculator.Calculate(info.Password);
+        await businessOrganizationService.Create(model);
     }
 
     public async Task RegisterEducationalOrganization(EducationalOrganizationRegistrationInfoDto info)

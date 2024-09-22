@@ -7,6 +7,7 @@ public interface IBusinessOrganizationRepository
 {
     Task<BusinessOrganization?> FindById(Guid id, CancellationToken cancellationToken);
     Task<BusinessOrganization?> FindByLoginAndPassword(string login, string passwordHash, CancellationToken cancellationToken);
+    Task<BusinessOrganization?> Create(BusinessOrganization businessOrganization, CancellationToken cancellationToken = default);
 }
 
 public class BusinessOrganizationRepository : IBusinessOrganizationRepository
@@ -22,6 +23,14 @@ public class BusinessOrganizationRepository : IBusinessOrganizationRepository
         => await context.BusinessOrganizations
             .Where(s => s.Login == login && s.PasswordHash == passwordHash)
             .FirstOrDefaultAsync(cancellationToken);
+
+    public async Task<BusinessOrganization?> Create(BusinessOrganization businessOrganization, CancellationToken cancellationToken = default)
+    {
+        
+        await context.BusinessOrganizations.AddAsync(businessOrganization, cancellationToken);
+        await context.SaveChangesAsync(cancellationToken);
+        return businessOrganization;
+    }
 
     public Task<BusinessOrganization?> FindById(Guid id, CancellationToken cancellationToken)
     {
