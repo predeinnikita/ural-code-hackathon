@@ -59,8 +59,6 @@ export const CreateVacancy: FC = () => {
       },
     });
 
-    localStorage.setItem('hui', 'hui');
-
   return (
     <div className={styles.main}>
       <div className={styles.title}>Создание вакансии</div>
