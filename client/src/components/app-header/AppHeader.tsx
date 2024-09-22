@@ -34,6 +34,12 @@ export const AppHeader: FC<any> = () => {
           <Hidder condition={location.pathname != '/auth'}>
             <div
               className={styles.navigationItem}
+              onClick={() => navigate(ROUTES.WORKS_PAGE)}
+            >
+              Мои стажировки
+            </div>
+            <div
+              className={styles.navigationItem}
               onClick={() => navigate(ROUTES.STUDENT_CLAIM_LIST_PAGE)}
             >
               Заявки
@@ -49,7 +55,7 @@ export const AppHeader: FC<any> = () => {
             onClick={() => navigate(ROUTES.VACANCY_LIST_PAGE)}
           >
             Вакансии
-          </div>  
+          </div>
           <div
             className={styles.navigationItem}
             onClick={() => navigate(ROUTES.STATISTICS_PAGE)}

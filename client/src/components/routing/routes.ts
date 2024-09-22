@@ -12,6 +12,7 @@ export enum ROUTES {
   CREATE_VACANCY_PAGE = "/create-vacancy",
   PROFILE_PAGE = "/profile",
   ORGANIZATION_PAGE = "/organization",
+  WORKS_PAGE = "/works"
 }
 
 export const ROUTE_TITLES = {
@@ -28,4 +29,5 @@ export const ROUTE_TITLES = {
   [ROUTES.CREATE_VACANCY_PAGE]: "Создать вакансию",
   [ROUTES.PROFILE_PAGE]: "Профиль",
   [ROUTES.ORGANIZATION_PAGE]: 'Ао "Аоаоао"',
+  [ROUTES.WORKS_PAGE]: 'Мои стажировки',
 };

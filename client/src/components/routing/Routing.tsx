@@ -14,6 +14,7 @@ import { StudentClaimPage } from "../../pages/student-claim-page/StudentClaimPag
 import { ProfilePage } from "../../pages/profile-page/ProfilePage";
 import { MainPage } from "../../pages/main-page/MainPage";
 import { OrganizationPage } from "../../pages/organization-page/OrganizationPage";
+import { WorksPage } from "../../pages/works-page/WorksPage";
 
 export const Routing: FC = () => {
   return (
@@ -45,6 +46,7 @@ export const Routing: FC = () => {
           />
           <Route path={ROUTES.STATISTICS_PAGE} element={<StatisticsPage />} />
           <Route path={ROUTES.PROFILE_PAGE} element={<ProfilePage />} />
+          <Route path={ROUTES.WORKS_PAGE} element={<WorksPage />} />
           <Route
             path={ROUTES.ORGANIZATION_PAGE}
             element={<OrganizationPage />}
